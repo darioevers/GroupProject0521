@@ -5,6 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e6bb2b1e79.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
@@ -45,8 +50,10 @@
         </ul>
       </nav>
       <!-- TOP BUTTONS -->
-      <button class="hamburger-menu" onclick="menuClick()">&#x2630;</button>
-      <button class="light-dark-mode"><span>✔</span> Light</button>
+      <button class="hamburger-menu" onclick="menuClick()">
+        <i class="fas fa-bars"></i></i>
+      </button>
+      <button class="light-dark-mode"><i class="fas fa-adjust"></i></button>
     </header>
     <!-- MAIN SECTION -->
     <main>
@@ -76,23 +83,32 @@
       <!-- MAIN MENU -->
       <section class="main-menu-container">
         <div class="main-menu-card">
-          <!-- CONTENT -->
+          <!-- MAIN MENU USER GREETING -->
           <div class="main-menu_content_top">
-            <!-- <h2>What's your name?</h2> -->
+            <h1>Welcome, username!</h1>
           </div>
-          <!-- CONTENT -->
-          <div class="login_content_mid">
-            <h2>What's your name?</h2>
-          </div>
-          <!-- LOGIN BUTTON -->
-          <div class="login_content_bot">
-            <input
-              type="text"
-              id="userName"
-              class="username_field"
-              placeholder=""
-            />
-            <button id="login_button" class="login_button">QUIZ!</button>
+          <!-- MAIN MENU BOXES -->
+          <div class="main-menu_content_bot">
+            <div class="main-menu-box">
+              <h2>QUIZ</h2>
+              <p>Lorem ipsum lorem ipsum</p>
+              <button>test</button>
+            </div>
+            <div class="main-menu-box">
+              <h2>FAQ</h2>
+              <p>Lorem ipsum lorem ipsum</p>
+              <button>test</button>
+            </div>
+            <div class="main-menu-box">
+              <h2>LEADERBOARD</h2>
+              <p>Lorem ipsum lorem ipsum</p>
+              <button>test</button>
+            </div>
+            <div class="main-menu-box">
+              <h2>ABOUT</h2>
+              <p>Lorem ipsum lorem ipsum</p>
+              <button>test</button>
+            </div>
           </div>
         </div>
       </section>
@@ -158,10 +174,8 @@
     </main>
     <!-- FOOTER AND FOOTERBUTTONS -->
     <footer>
-      <button class="home-button">Home</button>
-      <button class="sound-button"><span>✔</span> sound</button>
+      <button class="home-button"><i class="fas fa-home"></i></button>
+      <button class="sound-button"><i class="fas fa-volume-mute"></i></button>
     </footer>
-    <!-- JS IMPORT -->
-    <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>
