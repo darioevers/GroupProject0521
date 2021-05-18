@@ -33,9 +33,9 @@ h6 {
 p {
   @include font_a;
 }
-// Layout for the header section
+// ============================================= HEADER SECTION
 nav {
-  display: none;
+  display: none; // NAVIGATION WINDOW DISPLAY
   margin-top: 10px;
   width: 20vw;
   height: 50vh;
@@ -87,44 +87,36 @@ nav {
   }
 }
 .light-dark-mode {
-  position: absolute;
+  position: fixed;
   right: 10px;
   top: 10px;
 }
-.hamburguer-menu {
+.hamburger-menu {
+  display: block; // HAMBURGER BUTTON DISPLAY
   background-color: white;
   font-size: 3rem;
-  margin: 10px;
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }
 // ============================================= End of layout for the header section
 // ============================================= Layout for the main section
 // ============================================= LOGIN SCREEN
 .login-container {
-  display: block;
+  display: none; // LOGIN SCREEN DISPLAY
   margin: 15vh auto;
   width: 900px;
   position: relative;
-  top: 40%;
 
-  .login-counter {
-    position: absolute;
-    top: -50px;
-    left: 0px;
-    font-size: 3rem;
-    color: rgba(117, 112, 112, 0.342);
-  }
   .login-card {
     height: 550px;
     width: 900px;
-    box-shadow: 0 0 4px rgba(110, 110, 110, 0.521);
-    border-top: 8px solid rgba(153, 150, 150, 0.541);
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    position: relative;
     h2 {
-      padding-top: 20%;
+      padding-top: 10%;
     }
     p {
       height: 53px;
@@ -148,12 +140,54 @@ nav {
       background-color: #6200ee;
       color: white;
     }
+    .login_content_top {
+      margin-bottom: 0;
+      width: 90%;
+      background-image: url(../images/login_hero.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: right;
+      background-position-y: center;
+    }
+    .login_content_mid {
+      width: 90%;
+      margin-bottom: -5%;
+
+      h2 {
+        font-size: 2.4rem;
+      }
+    }
+    .login_content_bot {
+      text-align: center;
+      width: 90%;
+
+      .username_field {
+        width: 100%;
+        height: 4.5rem;
+        border: solid 1px #6200ee;
+        border-radius: 5px;
+        padding: 0px 10px;
+        font-size: 1.7rem;
+      }
+      .username_field:focus {
+        outline: none;
+      }
+      .login_button {
+        margin-top: 40px;
+        width: 20%;
+        height: 3.2rem;
+        background-color: #6200ee;
+        color: white;
+        font-weight: 600;
+        font-size: 1.3rem;
+      }
+    }
   }
 }
 // ============================================= LOGIN SCREEN END
 
 .quiz-container {
-  display: none;
+  display: none; // QUIZ SCREEN DISPLAY
   margin: 15vh auto;
   width: 900px;
   position: relative;
@@ -243,13 +277,13 @@ nav {
 //End of layout for the main section
 //Layout for the footer section
 .home-button {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   left: 10px;
 }
 
 .sound-button {
-  position: absolute;
+  position: fixed;
   bottom: 10px;
   right: 10px;
 }
