@@ -81,6 +81,20 @@ nav {
   width: 900px;
   box-shadow: 0 0 4px rgba(110, 110, 110, 0.521);
   margin: 35% auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    padding-top: 20%;
+  }
+  p {
+    height: 53px;
+    width: 487px;
+    border: 2px solid rgba(163, 161, 161, 0.37);
+    margin: 10px;
+  }
 }
 //End of layout for the header section
 //Layout for the footer section
