@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <!-- <button>&#x2630;</button> -->
+        <div class="user-mini-container">
+          <div class="username-container">
+            <img src="./images/userAvatar.jpg" alt="" class="user-avatar" />
+            <p class="username">Username</p>
+            <p class="user-points">40/100 <span class="target">⦿</span></p>
+          </div>
+          <button class="close-menu">✗</button>
+        </div>
+        <div class="menu-divider"></div>
+        <ul>
+          <li>
+            <a href="#"><span>🖊</span> quiz</a>
+          </li>
+          <li>
+            <a href="#"><span>⭐</span> leaderbooard</a>
+          </li>
+          <li>
+            <a href="#"><span>🖤</span> about</a>
+          </li>
+          <li>
+            <a href="#"> <span>🔖</span> FAQ</a>
+          </li>
+          <li>
+            <a href="#"><span>&#8634;</span> restart</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="hamburguer-menu">&#x2630;</button>
+      <button class="light-dark-mode"><span>✔</span> Light</button>
+    </header>
+    <main>
+      <section class="quiz-container">
+        <div class="question-counter">
+          <span class="counter">1 </span><span>of 15</span>
+        </div>
+        <div class="question-card">
+          <div class="question-box">
+            <h2 class="question">How much radiation does a banana emit?</h2>
+          </div>
+          <div class="answer-box">
+            <div class="answer-one">
+              <p class="answer">0.1 MICROSIEVERT</p>
+            </div>
+            <div class="answer-two">
+              <p class="answer">0.2 MICROSIEVERT</p>
+            </div>
+            <div class="answer-three">
+              <p class="answer">0.3 MICROSIEVERT</p>
+            </div>
+            <div class="answer-four">
+              <p class="answer">0.4 MICROSIEVERT</p>
+            </div>
+          </div>
+          <button class="next-question">˃</button>
+        </div>
+      </section>
+      <section class="leaderboard-container">
+        <div class="leaderboard-header">
+          <div class="tittle">
+            <h2>HALL OF FAME!</h2>
+            <p>
+              Try ro reach 3 out 3 stars by answering all questions correctly
+              and be forever memorized within the Quiz Hall of Fame!
+            </p>
+          </div>
+          <button class="back-button">˂ Back</button>
+          <div class="leaderboard-card">
+            <div class="card-tittle">
+              <span>★</span><span>LEADERBOARD</span>
+            </div>
+            <div class="card-divider"></div>
+            <div class="people">
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person-divider"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+              <div class="person"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <button class="home-button">Home</button>
+      <button class="sound-button"><span>✔</span> sound</button>
+    </footer>
+  </body>
+</html>
