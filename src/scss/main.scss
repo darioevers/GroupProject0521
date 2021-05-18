@@ -81,50 +81,56 @@ nav {
 }
 // End of layout for the header section
 //Layout for the main section
-.question-counter {
-  position: absolute;
-  top: 22%;
-  left: 15%;
-  font-size: 3rem;
-  color: rgba(117, 112, 112, 0.342);
-}
-.quiz-main-container {
-  height: 550px;
-  width: 900px;
-  box-shadow: 0 0 4px rgba(110, 110, 110, 0.521);
-  border-top: 8px solid rgba(153, 150, 150, 0.541);
+.quiz-container {
   margin: 35% auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  width: 900px;
   position: relative;
-  h2 {
-    padding-top: 20%;
-  }
-  p {
-    height: 53px;
-    width: 487px;
-    border: 1px solid rgba(163, 161, 161, 0.37);
-    border-radius: 5px;
-    margin: 10px;
-    color: #6200ee;
-    padding: 3% 0 0 5px;
-  }
-  .next-question {
-    height: 56px;
-    width: 56px;
+
+  .question-counter {
     position: absolute;
-    top: 50%;
-    right: -30px;
-    border-radius: 50%;
-    background-color: #03dac5;
+    top: -50px;
+    left: 0px;
+    font-size: 3rem;
+    color: rgba(117, 112, 112, 0.342);
   }
-  p:hover {
-    background-color: #6200ee;
-    color: white;
+  .question-card {
+    height: 550px;
+    width: 900px;
+    box-shadow: 0 0 4px rgba(110, 110, 110, 0.521);
+    border-top: 8px solid rgba(153, 150, 150, 0.541);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    h2 {
+      padding-top: 20%;
+    }
+    p {
+      height: 53px;
+      width: 487px;
+      border: 1px solid rgba(163, 161, 161, 0.37);
+      border-radius: 5px;
+      margin: 10px;
+      color: #6200ee;
+      padding: 3% 0 0 5px;
+    }
+    .next-question {
+      height: 56px;
+      width: 56px;
+      position: absolute;
+      top: 50%;
+      right: -30px;
+      border-radius: 50%;
+      background-color: #03dac5;
+    }
+    p:hover {
+      background-color: #6200ee;
+      color: white;
+    }
   }
 }
+
 //End of layout for the header section
 //Layout for the footer section
 
