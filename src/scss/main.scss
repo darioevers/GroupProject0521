@@ -107,7 +107,7 @@ nav {
 //
 // ============================================= LOGIN SCREEN
 .login-container {
-  display: none; // LOGIN SCREEN DISPLAY
+  display: block; // LOGIN SCREEN DISPLAY
   margin: 15vh auto;
   width: 900px;
   position: relative;
@@ -121,28 +121,6 @@ nav {
     align-items: center;
     h2 {
       padding-top: 10%;
-    }
-    p {
-      height: 53px;
-      width: 487px;
-      border: 1px solid rgba(163, 161, 161, 0.37);
-      border-radius: 5px;
-      margin: 10px;
-      color: #6200ee;
-      padding: 3% 0 0 5px;
-    }
-    .next-question {
-      height: 56px;
-      width: 56px;
-      position: absolute;
-      top: 50%;
-      right: -30px;
-      border-radius: 50%;
-      background-color: #03dac5;
-    }
-    p:hover {
-      background-color: #6200ee;
-      color: white;
     }
     .login_content_top {
       margin-bottom: 0;
@@ -209,17 +187,6 @@ nav {
       padding: 10% 0% 5%;
       font-size: 2.7rem;
     }
-    p {
-      border: 1px solid rgba(163, 161, 161, 0.37);
-      border-radius: 5px;
-      margin: 10px;
-      color: #6200ee;
-      padding: 3% 0 0 5px;
-    }
-    p:hover {
-      background-color: #6200ee;
-      color: white;
-    }
     .main-menu_content_top {
       // s
     }
@@ -237,6 +204,18 @@ nav {
         height: 60%;
         margin: 0px 15px;
         box-shadow: 2px 3px 15px 2px rgba(153, 153, 153, 0.37);
+
+        i {
+          font-size: 2.5rem;
+          margin: 10% 0%;
+        }
+        button {
+          margin: 10% 0% 4% 0%;
+          background-color: #6200ee;
+          color: white;
+          width: 7rem;
+          height: 2.3rem;
+        }
       }
     }
   }
