@@ -3,11 +3,27 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+//general layout for elements
+body {
+  //   position: relative;
+}
+button {
+  border: none;
+  border-radius: 30px;
+  background-color: #979797c4;
+  height: 32px;
+  width: 77px;
+}
+// Layout for the header section
 nav {
-  display: block;
+  display: none;
+  margin-top: 10px;
   width: 20vw;
   height: 50vh;
+  border-top: 10px solid gray;
   box-shadow: 2px 2px 10px rgba(110, 110, 110, 0.521);
+  position: relative;
   .user-mini-container {
     display: flex;
     flex-direction: row;
@@ -25,6 +41,7 @@ nav {
       }
     }
     .close-menu {
+      padding-left: 20px;
       height: 50px;
       background-color: white;
     }
@@ -51,9 +68,31 @@ nav {
     }
   }
 }
+.light-dark-mode {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
 
-button {
-  border: none;
-  border-radius: 10px;
-  background-color: #979797c4;
+// End of layout for the header section
+//Layout for the main section
+.quiz-main-container {
+  height: 550px;
+  width: 900px;
+  box-shadow: 0 0 4px rgba(110, 110, 110, 0.521);
+  margin: 35% auto;
+}
+//End of layout for the header section
+//Layout for the footer section
+
+.home-button {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+
+.sound-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
