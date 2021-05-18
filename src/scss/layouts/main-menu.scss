@@ -43,6 +43,12 @@
           color: white;
           width: 7rem;
           height: 2.3rem;
+          border-radius: 18px;
+          transition-duration: 0.8s;
+        }
+        button:hover {
+          transition-duration: 0.8s;
+          transform: scale(1.2);
         }
       }
     }

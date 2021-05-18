@@ -55,6 +55,12 @@
         color: white;
         font-weight: 600;
         font-size: 1.3rem;
+        border-radius: 18px;
+        transition-duration: 0.8s;
+      }
+      button:hover {
+        transition-duration: 0.8s;
+        transform: scale(1.2);
       }
     }
   }
