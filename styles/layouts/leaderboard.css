@@ -1,0 +1,36 @@
+.leaderboard-container {
+  display: block;
+  height: 650px;
+  width: 1024px;
+  margin: 7vh auto;
+  position: relative;
+}
+.leaderboard-container .leaderboard-header {
+  margin: 5px;
+  width: 494px;
+}
+.leaderboard-container .leaderboard-header h2 {
+  font-size: 2.5rem;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.849);
+}
+.leaderboard-container .leaderboard-header p {
+  color: rgba(0, 0, 0, 0.548);
+}
+.leaderboard-container .back-button {
+  position: absolute;
+  top: 5%;
+  right: 0px;
+}
+.leaderboard-container .leaderboard-card {
+  width: 1024px;
+  height: 541px;
+  box-shadow: 1.5px 2px 2px 2px rgba(110, 110, 110, 0.521);
+  margin-top: 20px;
+}
+.leaderboard-container .leaderboard-card .card-tittle span {
+  margin: 10px;
+  padding: 50px 0;
+}
+
+/*# sourceMappingURL=leaderboard.css.map */

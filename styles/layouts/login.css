@@ -1,0 +1,65 @@
+.login-container {
+  display: block;
+  margin: 15vh auto;
+  width: 900px;
+  position: relative;
+}
+.login-container .login-card {
+  height: 550px;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.login-container .login-card h2 {
+  padding-top: 10%;
+}
+.login-container .login-card .login_content_top {
+  margin-bottom: 0;
+  width: 90%;
+  background-image: url(../images/login_hero.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: center;
+}
+.login-container .login-card .login_content_mid {
+  width: 90%;
+  margin-bottom: -5%;
+}
+.login-container .login-card .login_content_mid h2 {
+  font-size: 2.4rem;
+}
+.login-container .login-card .login_content_bot {
+  text-align: center;
+  width: 90%;
+}
+.login-container .login-card .login_content_bot .username_field {
+  width: 100%;
+  height: 4.5rem;
+  border: solid 1px #6200ee;
+  border-radius: 5px;
+  padding: 0px 10px;
+  font-size: 1.7rem;
+}
+.login-container .login-card .login_content_bot .username_field:focus {
+  outline: none;
+}
+.login-container .login-card .login_content_bot .login_button {
+  margin-top: 40px;
+  width: 20%;
+  height: 3.2rem;
+  background-color: #6200ee;
+  color: white;
+  font-weight: 600;
+  font-size: 1.3rem;
+  border-radius: 18px;
+  transition-duration: 0.8s;
+}
+.login-container .login-card .login_content_bot button:hover {
+  transition-duration: 0.8s;
+  transform: scale(1.2);
+}
+
+/*# sourceMappingURL=login.css.map */

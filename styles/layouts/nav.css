@@ -1,0 +1,78 @@
+nav {
+  display: none;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  width: 20vw;
+  height: 100vh;
+  box-shadow: 2px 2px 10px rgba(110, 110, 110, 0.521);
+  background-color: white;
+  position: fixed;
+  z-index: 99;
+}
+nav .user-mini-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10px;
+}
+nav .user-mini-container .username-container {
+  padding: 10px;
+}
+nav .user-mini-container .username-container i {
+  font-size: 3rem;
+  margin: 20% 0%;
+}
+nav .user-mini-container .username-container img {
+  width: 50px;
+  height: 70px;
+  background-color: white;
+}
+nav .user-mini-container .username-container .target {
+  color: #6200ee;
+}
+nav .user-mini-container .close-menu {
+  padding-left: 20px;
+  height: 50px;
+  background-color: white;
+}
+nav .menu-divider {
+  content: "";
+  height: 3px;
+  width: 100%;
+  background-color: rgba(167, 161, 161, 0.267);
+}
+nav ul li {
+  margin: 35px 0;
+  padding: 0 10px;
+  list-style-type: none;
+}
+nav ul a {
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.4rem;
+}
+nav ul a span {
+  padding: 0 10px;
+  color: #6200ee;
+}
+
+.light-dark-mode {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+.hamburger-menu {
+  display: block;
+  color: #3a3a3a;
+  background-color: white;
+  font-size: 3rem;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+/*# sourceMappingURL=nav.css.map */
