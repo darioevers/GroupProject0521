@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 function fetchEasyData() {
   // this is a GET req
   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
@@ -38,3 +39,6 @@ function fetchEasyData() {
     })
     .catch((err) => console.log(`So this is what happened ${err}`));
 }
+=======
+// Any code you will write for your website (in the future!) should go here
+>>>>>>> main
