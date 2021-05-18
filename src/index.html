@@ -14,6 +14,7 @@
   </head>
   <body>
     <header>
+      <!-- HAMBURGER MENU CONTENT -->
       <nav>
         <!-- <button>&#x2630;</button> -->
         <div class="user-mini-container">
@@ -43,10 +44,23 @@
           </li>
         </ul>
       </nav>
-      <button class="hamburguer-menu">&#x2630;</button>
+      <!-- TOP BUTTONS -->
+      <button class="hamburguer-menu" onclick="menuClick()">&#x2630;</button>
       <button class="light-dark-mode"><span>✔</span> Light</button>
     </header>
+    <!-- MAIN SECTION -->
     <main>
+      <!-- LOGIN -->
+      <section class="login-container">
+        <div class="login-card">
+          <div class="login-box">
+            <h2 class="question">What's your name?</h2>
+          </div>
+
+          <button class="next-question">˃</button>
+        </div>
+      </section>
+      <!-- QUIZ CONTAINER -->
       <section class="quiz-container">
         <div class="question-counter">
           <span class="counter">1 </span><span>of 15</span>
@@ -72,6 +86,7 @@
           <button class="next-question">˃</button>
         </div>
       </section>
+      <!-- LEADERBOARD CONTAINER -->
       <section class="leaderboard-container">
         <div class="leaderboard-header">
           <div class="tittle">
@@ -104,9 +119,12 @@
         </div>
       </section>
     </main>
+    <!-- FOOTER AND FOOTERBUTTONS -->
     <footer>
       <button class="home-button">Home</button>
       <button class="sound-button"><span>✔</span> sound</button>
     </footer>
+    <!-- JS IMPORT -->
+    <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>
