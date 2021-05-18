@@ -1,4 +1,6 @@
-<<<<<<< HEAD
+const answerBox=document.querySelector('.answer')
+const question=document.querySelector('.question')
+
 function fetchEasyData() {
   // this is a GET req
   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
@@ -10,13 +12,10 @@ function fetchEasyData() {
         for (let i = 0; i < questNum; i++) {
           let data2 = data[props][i];
           let answers = [];
-          for (props2 in data2) {
-          }
           answers = data2["incorrect_answers"]
             .concat(data2["correct_answer"])
             .sort();
-          console.log(answers);
-          userCard1 += `<li classe='line'> <div>${data2["question"]}</h3></div> 
+          userCard1 += `<li> <div>${data2["question"]}</h3></div> 
           </li>`;
           for (let i = 0; i < answers.length; i++) {
             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
@@ -35,10 +34,7 @@ function fetchEasyData() {
         }
       }
 
-      document.querySelector(".result").innerHTML = userCard1;
+    question.innerHTML = userCard1;
     })
     .catch((err) => console.log(`So this is what happened ${err}`));
 }
-=======
-// Any code you will write for your website (in the future!) should go here
->>>>>>> main
