@@ -1,6 +1,6 @@
 // ============================================= HEADER SECTION
 nav {
-  display: block; // NAVIGATION WINDOW DISPLAY
+  display: none; // NAVIGATION WINDOW DISPLAY
   top: 0px;
   left: 0px;
   bottom: 0px;
@@ -17,6 +17,10 @@ nav {
     margin: 10px;
     .username-container {
       padding: 10px;
+      i {
+        font-size: 3rem;
+        margin: 20% 0%;
+      }
       img {
         width: 50px;
         height: 70px;
@@ -34,13 +38,13 @@ nav {
   }
   .menu-divider {
     content: "";
-    height: 1px;
+    height: 3px;
     width: 100%;
     background-color: rgba(167, 161, 161, 0.267);
   }
   ul {
     li {
-      margin: 10px 0;
+      margin: 35px 0;
       padding: 0 10px;
       list-style-type: none;
     }
@@ -48,8 +52,11 @@ nav {
       text-decoration: none;
       color: black;
       text-align: center;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1.4rem;
       span {
         padding: 0 10px;
+        color: #6200ee;
       }
     }
   }
