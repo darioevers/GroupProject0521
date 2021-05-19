@@ -58,6 +58,7 @@ const  welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
 const mainMenuContainer = document.querySelector(".main-menu-container");
+const homeButton = document.querySelector(".home-button");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -97,7 +98,7 @@ username.addEventListener("keyup", registerUsername);
 const startGame = ()=>{
   console.log(user.lenght);
   if (user.length < 1){
-    username.setAttribute("palceholder", "Please, type your name here :)")
+    username.setAttribute("placeholder", "Type your name here :)")
   } else {
     mainMenuContainer.style.display= "block";
     welcomeMessage.innerHTML = `Welcome, ${user}!`;
@@ -111,11 +112,17 @@ play.addEventListener("click", startGame);
 
 //FUNCTION FOR STARTING THE QUIZ
 const startQuiz = ()=> {
+  homeButton.style.display="block";
   mainMenuContainer.style.display= "none";
   quizContainer.style.display= "block";
 }
 start.addEventListener("click", startQuiz);
 
+function goHome (){
+  quizContainer.style.display= "none";
+  mainMenuContainer.style.display= "block";
+}
+homeButton.addEventListener("click", goHome);
 // window.addEventListener(
 //   "load",
 //   () => (quizMainContainer.style.display = "none")
