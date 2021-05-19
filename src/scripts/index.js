@@ -43,13 +43,18 @@ function fetchEasyData() {
 
 // DOM element selector
 const hamburgerMenu = document.querySelector(".hamburger-menu");
+// console.log(hamburgerMenu);
 const closeMenu = document.querySelector(".close-menu");
+// console.log(closeMenu);
 const navigation = document.querySelector("nav");
-const question = document.querySelector(".question");
+// const question = document.querySelector(".question");
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
 const quizMainContainer = document.querySelector(".quiz-main-container");
 const startButton = document.querySelector("#startButton");
+const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
+console.log(hamburgerMenuIcon);
+
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -58,23 +63,40 @@ const mediumQuestions =
 const hardQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
 
-const menuClick = () => {
-  hamburgerMenu.style.display = "none";
-  navigation.style.display = "inherit";
-};
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
 
-hamburgerMenu.addEventListener("click", menuClick);
-closeMenu.addEventListener("click", () => {
-  hamburgerMenu.style.display = "inherit";
-  navigation.style.display = "none";
-});
+// hamburgerMenu.addEventListener("click", menuClick);
+// closeMenu.addEventListener("click", () => {
+//   hamburgerMenu.style.display = "inherit";
+//   navigation.style.display = "none";
+// });
 
-window.addEventListener(
-  "load",
-  () => (quizMainContainer.style.display = "none")
-);
 
-startButton.addEventListener("click", () => {
-  mainContainer.style.display = "none";
-  quizMainContainer.style.display = "inherit";
-});
+//Function for the opening and closing the side menu
+let close = true;
+ const openCloseMenu = ()=>{
+   if (close) {
+    hamburgerMenuIcon.classList.toggle("open");
+    navigation.style.display= "block";
+    // navigation.classList.toggle("active");
+   } else{
+    hamburgerMenuIcon.classList.toggle("open");
+     navigation.style.display="none";
+    //  navigation.classList.toggle("active");
+   }
+   close = !close; 
+ }
+hamburgerMenuIcon.addEventListener("click", openCloseMenu);
+
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });

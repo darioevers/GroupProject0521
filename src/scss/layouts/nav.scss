@@ -1,14 +1,15 @@
 // ============================================= HEADER SECTION
 nav {
-  display: block; // NAVIGATION WINDOW DISPLAY
+  display: none; // NAVIGATION WINDOW DISPLAY
   top: 0px;
-  left: 0px;
-  bottom: 0px;
+  left: 0;
+  // bottom: 0px;
   width: 20vw;
   height:  100vh;
   max-height: 1440p;
   box-shadow: 2px 2px 10px rgba(110, 110, 110, 0.521);
   background-color: white;
+  transition: 0.5s ease-in-out;
   position: fixed;
   z-index: 99;
   .user-mini-container {
@@ -46,8 +47,8 @@ nav {
   }
   ul {
     li {
-      margin: 35px 0;
-      padding: 0 10px;
+      margin: 20px 0;
+      padding: 15px 10px;
       list-style-type: none;
     }
     a {
@@ -60,6 +61,9 @@ nav {
         padding: 0 10px;
         color: #6200ee;
       }
+    }
+    li:hover{
+      background-color: rgba(218, 210, 210, 0.434);
     }
   }
 }
