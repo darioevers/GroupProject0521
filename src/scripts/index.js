@@ -1,56 +1,9 @@
-// // <<<<<<< HEAD
-// // =======
-// const answerBox = document.querySelector(".answer");
-// const question = document.querySelector(".question");
-
-// function fetchEasyData() {
-//   // this is a GET req
-//   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       let userCard1 = "<h2>The easy Level </h2>";
-//       for (props in data) {
-//         let questNum = data[props].length / 4;
-//         for (let i = 0; i < questNum; i++) {
-//           let data2 = data[props][i];
-//           let answers = [];
-//           answers = data2["incorrect_answers"]
-//             .concat(data2["correct_answer"])
-//             .sort();
-//           userCard1 += `<li> <div>${data2["question"]}</h3></div>
-//           </li>`;
-//           for (let i = 0; i < answers.length; i++) {
-//             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
-//             // // if answer is correct
-//             // userAnswer = ` ${answers[i]}<input type='radio' name='question' value= "${answers[i]}" ></input>: checked`;
-//             // if (userAnswer === data2["correct_answer"]) {
-//             //   // color the answers green
-//             //   userCard1.style.color = "lightgreen";
-//             // }
-//             // // if answer is wrong or blank
-//             // else {
-//             //   // color the answers red
-//             //   userCard1.style.color = "red";
-//             // }
-//           }
-//         }
-//       }
-
-//       question.innerHTML = userCard1;
-//     })
-//     .catch((err) => console.log(`So this is what happened ${err}`));
-// }
-
-// asdasdasasdsadasdsadas
-
-//>>>>>>> main
 // DOM element selector
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
 const question = document.querySelector(".question");
 const answer = document.querySelector(".answer");
-//<<<<<<< HEAD
 const mainContainer = document.querySelector(".main-container");
 const quizMainContainer = document.querySelector(".quiz-main-container");
 const startBtn = document.querySelector(".login");
@@ -60,12 +13,6 @@ const userName = document.querySelector("#userName");
 const playerName = document.querySelector(".player-name");
 const res = document.querySelector(".res");
 // URL links for the questions
-// =======
-const mainContainer = document.querySelector(".main_container");
-const quizMainContainer = document.querySelector(".quiz-main-container");
-const startButton = document.querySelector("#startButton");
-
-// >>>>>>> main
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
 const mediumQuestions =
@@ -145,21 +92,59 @@ function fetchEasyData() {
 
 const menuClick = () => {
   hamburgerMenu.style.display = "none";
-  navigation.style.display = "inherit";
+  mainContainer.style.display = "none";
+  navigation.style.display = "block";
 };
-
+// Get user name function
+function getUser() {
+  name = userName.value;
+  res.innerHTML = `Welcome ${name}!`;
+  playerName.innerHTML = name;
+}
+// Event listeners
 hamburgerMenu.addEventListener("click", menuClick);
 closeMenu.addEventListener("click", () => {
-  hamburgerMenu.style.display = "block";
+  hamburgerMenu.style.display = "inherit";
+  mainContainer.style.display = "flex";
   navigation.style.display = "none";
 });
-
-window.addEventListener(
-  "load",
-  () => (quizMainContainer.style.display = "none")
-);
-
-startButton.addEventListener("click", () => {
+startBtn.addEventListener("click", () => {
+  quizMainContainer.style.display = "flex";
   mainContainer.style.display = "none";
-  quizMainContainer.style.display = "block";
+  getUser();
+  fetchEasyData();
 });
+function fetchEasyData() {
+  // this is a GET req
+  fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
+    .then((response) => response.json())
+    .then((data) => {
+      for (props in data) {
+        let questNum = data[props].length / 20;
+        for (let i = 0; i < questNum; i++) {
+          let data2 = data[props][i];
+          console.log(data2);
+          let answers = [];
+          answers = data2["incorrect_answers"]
+            .concat(data2["correct_answer"])
+            .sort();
+          question.innerHTML = `${data2["question"]}`;
+          console.log(answers);
+          answerBox.innerHTML = `<div class="answer-one">
+            <p class="answer">${answers[0]}</p>
+          </div>
+          <div class="answer-two">
+            <p class="answer">${answers[1]}</p>
+          </div>
+          <div class="answer-three">
+            <p class="answer">${answers[2]}</p>
+          </div>
+          <div class="answer-four">
+            <p class="answer">${answers[3]}</p>
+          </div>`;
+          console.log(answers);
+        }
+      }
+    })
+    .catch((err) => console.log(`So this is what happened ${err}`));
+}
