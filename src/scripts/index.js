@@ -1,4 +1,3 @@
-// DOM element selector
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
@@ -12,7 +11,6 @@ const answerBox = document.querySelector(".answer-box");
 const userName = document.querySelector("#userName");
 const playerName = document.querySelector(".player-name");
 const res = document.querySelector(".res");
-const start = document.querySelector(".start-quiz");
 // URL links for the questions
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
