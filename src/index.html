@@ -5,78 +5,84 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-  
   </head>
   <body>
     <header>
-        <nav>
-          <!-- <button>&#x2630;</button> -->
-          <div class="user-mini-container">
-            <div class="username-container">
-              <img src="./images/userAvatar.jpg" alt="" class="user-avatar" />
-              <p class="username">Username</p>
-              <p class="user-points">40/100 <span class="target">⦿</span></p>
-            </div>
-            <button class="close-menu">✗</button>
+      <nav>
+        <!-- <button>&#x2630;</button> -->
+        <div class="user-mini-container">
+          <div class="username-container">
+            <img src="./images/userAvatar.jpg" alt="" class="user-avatar" />
+            <p class="username">Username</p>
+            <p class="user-points">40/100 <span class="target">⦿</span></p>
           </div>
-          <div class="menu-divider"></div>
-          <ul>
-            <li>
-              <a href="#"><span>🖊</span> quiz</a>
-            </li>
-            <li>
-              <a href="#"><span>⭐</span> leaderbooard</a>
-            </li>
-            <li>
-              <a href="#"><span>🖤</span> about</a>
-            </li>
-            <li>
-              <a href="#"> <span>🔖</span> FAQ</a>
-            </li>
-            <li>
-              <a href="#"><span>&#8634;</span> restart</a>
-            </li>
-          </ul>
-        </nav>
-        <button class="hamburguer-menu">&#x2630;</button>
-        <button class="light-dark-mode"><span>✔</span> Light</button>
-      </header>
-      <main>
-        <div class="question-counter">
-          <span class="counter"></span>1 <span>of 15</span>
+          <button class="close-menu">✗</button>
         </div>
-        <div class="quiz-main-container">
-          <div class="question-box">
-            <h2 class="question">How much radiation does a banana emit?</h2>
-          </div>
-          <div class="answer-box">
-            <div class="answer-one">
-              <p class="answer">0.1 MICROSIEVERT</p>
-            </div>
-            <div class="answer-two">
-              <p class="answer">0.2 MICROSIEVERT</p>
-            </div>
-            <div class="answer-three">
-              <p class="answer">0.3 MICROSIEVERT</p>
-            </div>
-            <div class="answer-four">
-              <p class="answer">0.4 MICROSIEVERT</p>
-            </div>
-          </div>
-          <button class="next-question">˃</button>
+        <div class="menu-divider"></div>
+        <ul>
+          <li>
+            <a href="#"><span>🖊</span> quiz</a>
+          </li>
+          <li>
+            <a href="#"><span>⭐</span> leaderbooard</a>
+          </li>
+          <li>
+            <a href="#"><span>🖤</span> about</a>
+          </li>
+          <li>
+            <a href="#"> <span>🔖</span> FAQ</a>
+          </li>
+          <li>
+            <a href="#"><span>&#8634;</span> restart</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="hamburguer-menu">&#x2630;</button>
+      <button class="light-dark-mode"><span>✔</span> Light</button>
+    </header>
+    <main>
+      <div class="question-counter">
+        <span class="counter"></span>1 <span>of 15</span>
+      </div>
+      <div class="quiz-main-container">
+        <div class="question-box">
+          <h2 class="question">How much radiation does a banana emit?</h2>
         </div>
-      </main>
-      <footer>
-        <button class="home-button">Home</button>
-        <button class="sound-button"><span>✔</span> sound</button>
-      </footer>
+        <button onclick="myFunction1()">next</button>
+
+        <button onclick="myFunction2()">next</button>
+
+        <button onclick="myFunction3()">next</button>
+
+        <button onclick="myFunction4()">next</button>
+        <button onclick="fetchEasyData()">start the Game</button>
+        <div class="answer-box">
+          <div class="answer-one">
+            <p class="answer">0.1 MICROSIEVERT</p>
+          </div>
+          <div class="answer-two">
+            <p class="answer">0.2 MICROSIEVERT</p>
+          </div>
+          <div class="answer-three">
+            <p class="answer">0.3 MICROSIEVERT</p>
+          </div>
+          <div class="answer-four">
+            <p class="answer">0.4 MICROSIEVERT</p>
+          </div>
+        </div>
+        <button class="next-question">˃</button>
+      </div>
+    </main>
+    <footer>
+      <button class="home-button">Home</button>
+      <button class="sound-button"><span>✔</span> sound</button>
+    </footer>
     <div class="container">
-      <button onclick="fetchEasyData()">start the Game</button>
-      <button onclick=" fetchMediData()">The next Level</button>
-      <button onclick=" fetchDifiData()">The End</button>
+      <!-- <button onclick=" fetchMediData()">The next Level</button>
+      <button onclick=" fetchDifiData()">The End</button> -->
     </div>
     <div class="result"></div>
 
-    <script src="./scripts/index.js"></script>
+    <script src="./scripts/test.js"></script>
   </body>
 </html>
