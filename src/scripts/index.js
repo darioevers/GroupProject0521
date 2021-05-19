@@ -45,9 +45,14 @@ function fetchEasyData() {
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 // console.log(hamburgerMenu);
 const closeMenu = document.querySelector(".close-menu");
+// <<<<<<< sergio
 // console.log(closeMenu);
 const navigation = document.querySelector("nav");
 // const question = document.querySelector(".question");
+// =======
+console.log(hamburgerMenu);
+const navigation = document.querySelector("nav");
+// >>>>>>> main
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
 const quizMainContainer = document.querySelector(".quiz-main-container");
