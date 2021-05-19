@@ -16,13 +16,14 @@ button {
 }
 // Layout for the header section
 nav {
-  display: none;
+  display: inline-block;
   margin-top: 10px;
-  width: 20vw;
+  width: 30vw;
   height: 50vh;
   border-top: 10px solid gray;
   box-shadow: 2px 2px 10px rgba(110, 110, 110, 0.521);
   position: relative;
+  z-index:1;
   .user-mini-container {
     display: flex;
     flex-direction: row;
@@ -84,7 +85,7 @@ nav {
   margin: 35% auto;
   width: 900px;
   position: relative;
-
+  z-index: -1;
   .question-counter {
     position: absolute;
     top: -50px;
