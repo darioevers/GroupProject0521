@@ -22,7 +22,7 @@ const hardQuestions =
 // Menu click functions
 const menuClick = () => {
   hamburgerMenu.style.display = "none";
-  mainContainer.style.display = "none";
+  // mainContainer.style.display = "none";
   navigation.style.display = "block";
 };
 // Get user name function
@@ -157,7 +157,7 @@ function fetchEasyData() {
       }
     })
     .catch((err) => console.log(`So this is what happened ${err}`));
-  document.querySelector(".question-card-levl2").style.display = "none";
+  // document.querySelector(".question-card-levl2").style.display = "none";
 }
 
 function fetchDifData() {
