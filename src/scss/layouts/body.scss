@@ -8,4 +8,16 @@ section {
   height: 100vh;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
+.wronganswer {
+  background-color: red;
+}
+
+.correctanswer {
+  background-color: green;
+}
+
 //general layout for elements
