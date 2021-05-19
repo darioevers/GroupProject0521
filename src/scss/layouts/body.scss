@@ -1,3 +1,8 @@
+:root {
+  --dark-color-a: {#2b2e4a}
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -20,4 +25,25 @@ section {
   background-color: green;
 }
 
-//general layout for elements
+// BODY AND DARK MODE
+
+body {
+  background-color: white;
+}
+
+// DARK MODE
+
+body.dark-theme {
+  background-color: #2b2e4a;
+}
+
+// LOGIN SCREEN
+
+body.dark-theme .login-button {
+  background-color: #903749;
+}
+
+body.dark-theme .username-field {
+  border: #903749 10px solid;
+}
+

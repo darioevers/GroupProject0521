@@ -63,6 +63,7 @@ const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
+const themeButton = document.querySelector(".theme-button");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -115,6 +116,13 @@ const startQuiz = () => {
   quizContainer.style.display = "block";
 };
 start.addEventListener("click", startQuiz);
+
+// CORNER BUTTONS
+// LIGHT DARK MODE
+const toggleTheme = () => {
+  document.body.classList.toggle("dark-theme");
+};
+themeButton.addEventListener("click", toggleTheme);
 
 function goHome() {
   mainMenuContainer.style.display = "block";

@@ -47,6 +47,9 @@
       .username-field:focus {
         outline: none;
       }
+      .username-field.dark-theme {
+        background-color: #e84545;
+      }
       .login-button {
         margin-top: 40px;
         width: 20%;
