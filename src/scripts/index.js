@@ -1,30 +1,90 @@
-const answerBox = document.querySelector(".answer");
-const question = document.querySelector(".question-box");
-const answerOne = document.querySelector(".answer");
-
+// DOM element selector
+const hamburgerMenu = document.querySelector(".hamburger-menu");
+const closeMenu = document.querySelector(".close-menu");
+const navigation = document.querySelector("nav");
+const question = document.querySelector(".question");
+const answer = document.querySelector(".answer");
+const mainContainer = document.querySelector(".main-container");
+const quizMainContainer = document.querySelector(".quiz-main-container");
+const startBtn = document.querySelector(".login");
+const questionCounter = document.querySelector(".question-counter");
+const answerBox = document.querySelector(".answer-box");
+const userName = document.querySelector("#userName");
+const playerName = document.querySelector(".player-name");
+const res = document.querySelector(".res");
+// URL links for the questions
+const easyQuestions =
+  "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
+const mediumQuestions =
+  "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
+const hardQuestions =
+  "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
+// Menu click functions
+const menuClick = () => {
+  hamburgerMenu.style.display = "none";
+  mainContainer.style.display = "none";
+  navigation.style.display = "block";
+};
+// Get user name function
+function getUser() {
+  name = userName.value;
+  res.innerHTML = `Welcome ${name}!`;
+  playerName.innerHTML = name;
+}
+// Event listeners
+hamburgerMenu.addEventListener("click", menuClick);
+closeMenu.addEventListener("click", () => {
+  hamburgerMenu.style.display = "inherit";
+  mainContainer.style.display = "flex";
+  navigation.style.display = "none";
+});
+startBtn.addEventListener("click", () => {
+  quizMainContainer.style.display = "flex";
+  mainContainer.style.display = "none";
+  getUser();
+  fetchEasyData();
+});
 function fetchEasyData() {
   // this is a GET req
   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
     .then((response) => response.json())
     .then((data) => {
-      let userCard1 = "<h2>The easy Level </h2>";
       for (props in data) {
         let questNum = data[props].length / 4;
         for (let i = 0; i < questNum; i++) {
           let data2 = data[props][i];
+          console.log(data2);
           let answers = [];
           answers = data2["incorrect_answers"]
             .concat(data2["correct_answer"])
             .sort();
+          question.innerHTML = `${data2["question"]}`;
           console.log(answers);
-          userCard1 += `<li> <div>${data[props][i]["question"]}</h3></div> 
-          </li>`;
           for (let i = 0; i < answers.length; i++) {
-            userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
+            answerBox.innerHTML = `<div class="answer-one">
+            <p class="answer">${answers[0]}<input type='radio' name='question' value= "${answers[0]} " ></input></p>
+          </div>
+          <div class="answer-two">
+            <p class="answer">${answers[1]}<input type='radio' name='question' value= "${answers[1]} " ></input></p>
+          </div>
+          <div class="answer-three">
+            <p class="answer">${answers[2]}<input type='radio' name='question' value= "${answers[2]} " ></input></p>
+          </div>
+          <div class="answer-four">
+            <p class="answer">${answers[3]}<input type='radio' name='question' value= "${answers[3]} " ></input></p>
+          </div>`;
+            console.log(answers[i]);
+            if (
+              document.querySelector(".answer-two:checked") ===
+              data2["correct_answer"]
+            ) {
+              answer.style.display = "block";
+            } else {
+              answer.style.color = "non";
+            }
           }
         }
       }
-      question.innerHTML = userCard1;
     })
     .catch((err) => console.log(`So this is what happened ${err}`));
 }
