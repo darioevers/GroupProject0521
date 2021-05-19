@@ -59,6 +59,7 @@ const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
 const mainMenuContainer = document.querySelector(".main-menu-container");
 const homeButton = document.querySelector(".home-button");
+const restart = document.querySelector(".reload");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -66,8 +67,6 @@ const mediumQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
 const hardQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
-
-
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -92,19 +91,30 @@ function registerUsername (e){
 }
 username.addEventListener("keyup", registerUsername);
 
+
 //FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
 const startGame = ()=>{
-  console.log(user.lenght);
-  if (user.length < 1){
+  if (user == ""){
     username.setAttribute("placeholder", "Type your name here :)");
   } else {
     mainMenuContainer.style.display= "block";
     welcomeMessage.innerHTML = `Welcome, ${user}!`;
     userNav.innerHTML = `${user}`;
     loginContainer.style.display= "none";
-  }
+  } 
+}
+const startGameTwo = (e)=>{
+  if (user == ""){
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else if (event.key == "Enter"){
+    mainMenuContainer.style.display= "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display= "none";
+  } 
 }
 play.addEventListener("click", startGame);
+username.addEventListener("keypress", startGameTwo);
 
 //FUNCTION FOR STARTING THE QUIZ
 const startQuiz = ()=> {
@@ -119,6 +129,12 @@ function goHome (){
   mainMenuContainer.style.display= "block";
 }
 homeButton.addEventListener("click", goHome);
+
+//FUNCTION FOR THE THE LOGOUT ITEM ON THE MENU
+function logOut (){
+  setTimeout("location.reload(true);", 0.5);
+}
+restart.addEventListener("click", logOut);
 // window.addEventListener(
 //   "load",
 //   () => (quizMainContainer.style.display = "none")
