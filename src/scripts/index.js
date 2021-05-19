@@ -44,8 +44,8 @@ function fetchEasyData() {
 // DOM element selector
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
+console.log(hamburgerMenu);
 const navigation = document.querySelector("nav");
-const question = document.querySelector(".question");
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
 const quizMainContainer = document.querySelector(".quiz-main-container");
