@@ -58,16 +58,14 @@ const play = document.querySelector(".login-button");
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
-const mainContainer = document.querySelector(".main_container"); // IS THIS THE SAME AS LINE 49?
+const mainContainer = document.querySelector(".main_container"); 
+// IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
-<<<<<<< HEAD
 const restart = document.querySelector(".reload");
-=======
 const themeButton = document.querySelector(".theme-button");
->>>>>>> main
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -99,25 +97,19 @@ function registerUsername(e) {
 }
 username.addEventListener("keyup", registerUsername);
 
-
 //FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
-<<<<<<< HEAD
-const startGame = ()=>{
-  if (user == ""){
-=======
 const startGame = () => {
   console.log(user.lenght);
   if (user.length < 1) {
->>>>>>> main
     username.setAttribute("placeholder", "Type your name here :)");
   } else {
     mainMenuContainer.style.display = "block";
     welcomeMessage.innerHTML = `Welcome, ${user}!`;
     userNav.innerHTML = `${user}`;
-<<<<<<< HEAD
-    loginContainer.style.display= "none";
-  } 
-}
+    loginContainer.style.display = "none";
+  }
+}; 
+
 const startGameTwo = (e)=>{
   if (user == ""){
     username.setAttribute("placeholder", "Type your name here :)");
@@ -128,11 +120,7 @@ const startGameTwo = (e)=>{
     loginContainer.style.display= "none";
   } 
 }
-=======
-    loginContainer.style.display = "none";
-  }
-};
->>>>>>> main
+
 play.addEventListener("click", startGame);
 username.addEventListener("keypress", startGameTwo);
 
@@ -143,7 +131,6 @@ const startQuiz = () => {
   quizContainer.style.display = "block";
 };
 start.addEventListener("click", startQuiz);
-
 // CORNER BUTTONS
 // LIGHT DARK MODE
 const toggleTheme = () => {
@@ -166,26 +153,6 @@ function logOut (){
   setTimeout("location.reload(true);", 0.5);
 }
 restart.addEventListener("click", logOut);
-// window.addEventListener(
-//   "load",
-//   () => (quizMainContainer.style.display = "none")
-// );
-
-// startButton.addEventListener("click", () => {
-//   mainContainer.style.display = "none";
-//   quizMainContainer.style.display = "inherit";
-// });
-
-// const menuClick = () => {
-//   hamburgerMenu.style.display = "none";
-//   navigation.style.display = "inherit";
-// };
-
-// hamburgerMenu.addEventListener("click", menuClick);
-// closeMenu.addEventListener("click", () => {
-//   hamburgerMenu.style.display = "inherit";
-//   navigation.style.display = "none";
-// });
 
 // MAIN MENU BUTTONS
 // ABOUT
@@ -211,3 +178,28 @@ const openLeaderboard = () => {
   leaderboardContainer.style.display = "block";
 };
 openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
+// hamburgerMenu.addEventListener("click", menuClick);
+// closeMenu.addEventListener("click", () => {
+//   hamburgerMenu.style.display = "inherit";
+//   navigation.style.display = "none";
+// });
