@@ -226,17 +226,3 @@ function fetchDifData() {
 function nextLevel() {
   fetchDifData();
 }
-const hide = document.querySelector("#hide");
-hide.addEventListener("change", () => {
-  if (hide.checked) {
-    list.style.display = "none";
-  } else {
-    list.style.display = "block";
-  }
-});
-const startQuiz = () => {
-  homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
-  quizContainer.style.display = "block";
-};
-start.addEventListener("click", startQuiz);
