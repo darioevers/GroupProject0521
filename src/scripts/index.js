@@ -39,26 +39,25 @@ function fetchEasyData() {
     .catch((err) => console.log(`So this is what happened ${err}`));
 }
 
-// asdasdasasdsadasdsadas
 
-// DOM element selector
+
+// DOM ELEMENT SELECTORS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
-// console.log(hamburgerMenu);
 const closeMenu = document.querySelector(".close-menu");
-// <<<<<<< sergio
-// console.log(closeMenu);
 const navigation = document.querySelector("nav");
 // const question = document.querySelector(".question");
-// =======
-console.log(hamburgerMenu);
-// const navigation = document.querySelector("nav");
-// >>>>>>> main
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
-const quizMainContainer = document.querySelector(".quiz-main-container");
+const quizContainer = document.querySelector(".quiz-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
-console.log(hamburgerMenuIcon);
+const username = document.querySelector(".username-field");
+const play = document.querySelector(".login-button");
+const loginContainer = document.querySelector(".login-container");
+const  welcomeMessage = document.querySelector(".welcome-message");
+const userNav = document.querySelector(".username");
+const start = document.querySelector(".start-quiz");
+const mainMenuContainer = document.querySelector(".main-menu-container");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -67,18 +66,9 @@ const mediumQuestions =
 const hardQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
 
-// const menuClick = () => {
-//   hamburgerMenu.style.display = "none";
-//   navigation.style.display = "inherit";
-// };
 
-// hamburgerMenu.addEventListener("click", menuClick);
-// closeMenu.addEventListener("click", () => {
-//   hamburgerMenu.style.display = "inherit";
-//   navigation.style.display = "none";
-// });
 
-//Function for the opening and closing the side menu
+//FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
 const openCloseMenu = () => {
   if (close) {
@@ -94,6 +84,38 @@ const openCloseMenu = () => {
 };
 hamburgerMenuIcon.addEventListener("click", openCloseMenu);
 
+//FUNCTION FOR STORING USERNAME
+let user = "";
+function registerUsername (e){
+  console.dir(e.target.value);
+  user = e.target.value;
+  console.log(user);
+}
+username.addEventListener("keyup", registerUsername);
+
+//FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
+const startGame = ()=>{
+  console.log(user.lenght);
+  if (user.length < 1){
+    username.setAttribute("palceholder", "Please, type your name here :)")
+  } else {
+    mainMenuContainer.style.display= "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display= "none";
+    
+  }
+ 
+}
+play.addEventListener("click", startGame);
+
+//FUNCTION FOR STARTING THE QUIZ
+const startQuiz = ()=> {
+  mainMenuContainer.style.display= "none";
+  quizContainer.style.display= "block";
+}
+start.addEventListener("click", startQuiz);
+
 // window.addEventListener(
 //   "load",
 //   () => (quizMainContainer.style.display = "none")
@@ -102,4 +124,15 @@ hamburgerMenuIcon.addEventListener("click", openCloseMenu);
 // startButton.addEventListener("click", () => {
 //   mainContainer.style.display = "none";
 //   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
+// hamburgerMenu.addEventListener("click", menuClick);
+// closeMenu.addEventListener("click", () => {
+//   hamburgerMenu.style.display = "inherit";
+//   navigation.style.display = "none";
 // });
