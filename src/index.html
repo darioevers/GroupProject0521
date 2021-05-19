@@ -5,43 +5,114 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.css" />
+    <script src="./scripts/index.js"></script>
+    <script
+      src="https://kit.fontawesome.com/e6bb2b1e79.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <title>Document</title>
   </head>
   <body>
     <header>
+      <!-- HAMBURGER MENU CONTENT -->
       <nav>
-        <!-- <button>&#x2630;</button> -->
         <div class="user-mini-container">
           <div class="username-container">
-            <img src="./images/userAvatar.jpg" alt="" class="user-avatar" />
+            <i class="fas fa-user-circle"></i>
             <p class="username">Username</p>
             <p class="user-points">40/100 <span class="target">⦿</span></p>
           </div>
-          <button class="close-menu">✗</button>
+          <button class="close-menu"><i class="fas fa-times"></i></button>
         </div>
         <div class="menu-divider"></div>
         <ul>
           <li>
-            <a href="#"><span>🖊</span> quiz</a>
+            <a href="#"><span><i class="fas fa-graduation-cap"></i></span> QUIZ</a>
           </li>
           <li>
-            <a href="#"><span>⭐</span> leaderbooard</a>
+            <a href="#"><span><i class="fas fa-chart-line"></i></span> HALL OF FAME</a>
           </li>
           <li>
-            <a href="#"><span>🖤</span> about</a>
+            <a href="#"><span><i class="fas fa-users-cog"></i></span> ABOUT</a>
           </li>
           <li>
-            <a href="#"> <span>🔖</span> FAQ</a>
+            <a href="#"> <span><i class="fas fa-bookmark"></i></span> FAQ</a>
           </li>
           <li>
-            <a href="#"><span>&#8634;</span> restart</a>
+            <a href="#"><span><i class="fas fa-undo-alt"></i></span> RESTART</a>
           </li>
         </ul>
       </nav>
-      <button class="hamburguer-menu">&#x2630;</button>
-      <button class="light-dark-mode"><span>✔</span> Light</button>
+      <!-- TOP BUTTONS -->
+      <button class="hamburger-menu" onclick="menuClick()">
+        <i class="fas fa-bars"></i></i>
+      </button>
+      <button class="light-dark-mode" onclick="lightDarkMode()"><i class="fas fa-adjust"></i></button>
     </header>
+    <!-- MAIN SECTION -->
     <main>
+      <!-- LOGIN -->
+      <section class="login-container">
+        <div class="login-card">
+          <!-- CONTENT -->
+          <div class="login_content_top">
+            <!-- <h2>What's your name?</h2> -->
+          </div>
+          <!-- CONTENT -->
+          <div class="login_content_mid">
+            <h2>What's your name?</h2>
+          </div>
+          <!-- LOGIN BUTTON -->
+          <div class="login_content_bot">
+            <input
+              type="text"
+              id="userName"
+              class="username_field"
+              placeholder=""
+            />
+            <button id="login_button" class="login_button">QUIZ!</button>
+          </div>
+        </div>
+      </section>
+      <!-- MAIN MENU -->
+      <section class="main-menu-container">
+        <div class="main-menu-card">
+          <!-- MAIN MENU USER GREETING -->
+          <div class="main-menu_content_top">
+            <h1>Welcome, username!</h1>
+          </div>
+          <!-- MAIN MENU BOXES -->
+          <div class="main-menu_content_bot">
+            <div class="main-menu-box">
+                <i class="fas fa-graduation-cap"></i>
+              <h2>QUIZ</h2>
+              <button>click</button>
+            </div>
+            <div class="main-menu-box">
+                <i class="fas fa-bookmark"></i>
+              <h2>FAQ</h2>
+              <button>click</button>
+            </div>
+            <div class="main-menu-box">
+                <i class="fas fa-chart-line"></i>
+              <h2>LEADERBOARD</h2>
+              <button>click</button>
+            </div>
+            <div class="main-menu-box">
+                <i class="fas fa-users-cog"></i>
+              <h2>ABOUT</h2>
+              <button>click</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUIZ CONTAINER -->
       <section class="quiz-container">
         <div class="question-counter">
           <span class="counter">1 </span><span>of 15</span>
@@ -67,6 +138,7 @@
           <button class="next-question">˃</button>
         </div>
       </section>
+      <!-- LEADERBOARD CONTAINER -->
       <section class="leaderboard-container">
         <div class="leaderboard-header">
           <div class="tittle">
@@ -99,9 +171,10 @@
         </div>
       </section>
     </main>
+    <!-- FOOTER AND FOOTERBUTTONS -->
     <footer>
-      <button class="home-button">Home</button>
-      <button class="sound-button"><span>✔</span> sound</button>
+      <button class="home-button"><i class="fas fa-home"></i></button>
+      <button class="sound-button"><i class="fas fa-volume-mute"></i></button>
     </footer>
   </body>
 </html>
