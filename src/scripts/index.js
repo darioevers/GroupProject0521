@@ -59,9 +59,9 @@ function myFunction1() {
 }
 
 function myFunction2() {
-  document.querySelector(".question1").style.display = "block";
+  document.querySelector(".question1").style.display = "none";
 
-  document.querySelector(".question2").style.display = "none";
+  document.querySelector(".question2").style.display = "block";
 
   document.querySelector(".question3").style.display = "none";
 
