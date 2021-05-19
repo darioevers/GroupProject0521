@@ -51,7 +51,7 @@ const navigation = document.querySelector("nav");
 // const question = document.querySelector(".question");
 // =======
 console.log(hamburgerMenu);
-const navigation = document.querySelector("nav");
+// const navigation = document.querySelector("nav");
 // >>>>>>> main
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
@@ -59,7 +59,6 @@ const quizMainContainer = document.querySelector(".quiz-main-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 console.log(hamburgerMenuIcon);
-
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -79,21 +78,20 @@ const hardQuestions =
 //   navigation.style.display = "none";
 // });
 
-
 //Function for the opening and closing the side menu
 let close = true;
- const openCloseMenu = ()=>{
-   if (close) {
+const openCloseMenu = () => {
+  if (close) {
     hamburgerMenuIcon.classList.toggle("open");
-    navigation.style.display= "block";
+    navigation.style.display = "block";
     // navigation.classList.toggle("active");
-   } else{
+  } else {
     hamburgerMenuIcon.classList.toggle("open");
-     navigation.style.display="none";
+    navigation.style.display = "none";
     //  navigation.classList.toggle("active");
-   }
-   close = !close; 
- }
+  }
+  close = !close;
+};
 hamburgerMenuIcon.addEventListener("click", openCloseMenu);
 
 // window.addEventListener(
