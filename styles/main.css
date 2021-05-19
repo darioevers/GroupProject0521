@@ -1,12 +1,12 @@
 .about-container {
   display: none;
-  margin: 15vh auto;
-  width: 900px;
+  margin: 0 auto;
+  width: 1100px;
   position: relative;
 }
 .about-container .about-card {
-  height: 550px;
-  width: 900px;
+  height: 80vh;
+  width: 1100px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -15,18 +15,30 @@
 .about-container .about-card h2 {
   padding-top: 10%;
 }
-.about-container .about-card .about-content-top {
-  margin-bottom: 0;
-  width: 90%;
-  background-image: url(../images/login_hero.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: center;
+.about-container .about-card span {
+  color: #6200ee;
+  font-weight: bolder;
+}
+.about-container .about-card .about-box {
+  width: 220px;
+  height: 220px;
+  margin: 0px 15px;
+  box-shadow: 2px 4px 15px 2px #a162fa1f;
+}
+.about-container .about-card .about-box .leftaboutbox {
+  margin-left: 0px;
+}
+.about-container .about-card .about-box .rightaboutbox {
+  margin-left: 0px;
+}
+.about-container .about-card .about-box i {
+  font-size: 3rem;
+  padding: 5%;
+  margin-top: 20%;
 }
 .about-container .about-card .about-content-mid {
   width: 90%;
-  margin-bottom: -5%;
+  margin-bottom: -15%;
 }
 .about-container .about-card .about-content-mid h2 {
   font-size: 2.4rem;
@@ -34,49 +46,52 @@
 .about-container .about-card .about-content-bot {
   text-align: center;
   width: 90%;
+  display: flex;
+}
+.about-container .about-card .about-content-bot h2 {
+  font-family: "Roboto", sans-serif;
 }
 
 .faq-container {
   display: none;
-  margin: 15vh auto;
+  margin: 0 auto;
   width: 900px;
   position: relative;
+  height: 80vh;
+  align-items: center;
 }
 .faq-container .faq-card {
-  height: 550px;
+  margin-top: 16vh;
+  height: 80vh;
   width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.faq-container .faq-card h2 {
-  padding-top: 10%;
-}
-.faq-container .faq-card .faq-content-top {
-  margin-bottom: 0;
-  width: 90%;
-  background-image: url(../images/login_hero.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: center;
+.faq-container .faq-card .faq-content-top img {
+  height: 300px;
 }
 .faq-container .faq-card .faq-content-mid {
   width: 90%;
-  margin-bottom: -5%;
+  margin-bottom: 2%;
 }
 .faq-container .faq-card .faq-content-mid h2 {
   font-size: 2.4rem;
 }
+.faq-container .faq-card .faq-content-mid span {
+  color: #6200ee;
+  font-weight: bolder;
+}
 .faq-container .faq-card .faq-content-bot {
-  text-align: center;
+  text-align: left;
   width: 90%;
+  height: 60%;
 }
 
 .leaderboard-container {
   display: none;
-  height: 650px;
+  height: 550px;
   width: 1024px;
   margin: 15vh auto;
   position: relative;
@@ -100,7 +115,7 @@
 }
 .leaderboard-container .leaderboard-card {
   width: 1024px;
-  height: 541px;
+  height: 460px;
   box-shadow: 1.5px 2px 2px 2px rgba(110, 110, 110, 0.521);
   margin-top: 20px;
 }
@@ -157,6 +172,9 @@
 }
 .login-container .login-card .login-content-bot .username-field:focus {
   outline: none;
+}
+.login-container .login-card .login-content-bot .username-field.dark-theme {
+  background-color: #e84545;
 }
 .login-container .login-card .login-content-bot .login-button {
   margin-top: 40px;
@@ -374,6 +392,10 @@ nav ul li:hover {
   left: 10px;
 }
 
+:root {
+  --dark-color-a: {#2b2e4a} ;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -394,6 +416,22 @@ section {
 
 .correctanswer {
   background-color: green;
+}
+
+body {
+  background-color: white;
+}
+
+body.dark-theme {
+  background-color: #2b2e4a;
+}
+
+body.dark-theme .login-button {
+  background-color: #903749;
+}
+
+body.dark-theme .username-field {
+  border: #903749 10px solid;
 }
 
 .hamburger-menu-icon {

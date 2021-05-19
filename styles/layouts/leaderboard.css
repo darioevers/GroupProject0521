@@ -1,6 +1,6 @@
 .leaderboard-container {
   display: none;
-  height: 650px;
+  height: 550px;
   width: 1024px;
   margin: 15vh auto;
   position: relative;
@@ -24,7 +24,7 @@
 }
 .leaderboard-container .leaderboard-card {
   width: 1024px;
-  height: 541px;
+  height: 460px;
   box-shadow: 1.5px 2px 2px 2px rgba(110, 110, 110, 0.521);
   margin-top: 20px;
 }

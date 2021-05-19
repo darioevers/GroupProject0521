@@ -47,6 +47,9 @@
 .login-container .login-card .login-content-bot .username-field:focus {
   outline: none;
 }
+.login-container .login-card .login-content-bot .username-field.dark-theme {
+  background-color: #e84545;
+}
 .login-container .login-card .login-content-bot .login-button {
   margin-top: 40px;
   width: 20%;

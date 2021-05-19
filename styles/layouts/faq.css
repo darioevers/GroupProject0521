@@ -1,39 +1,38 @@
 .faq-container {
   display: none;
-  margin: 15vh auto;
+  margin: 0 auto;
   width: 900px;
   position: relative;
+  height: 80vh;
+  align-items: center;
 }
 .faq-container .faq-card {
-  height: 550px;
+  margin-top: 16vh;
+  height: 80vh;
   width: 900px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.faq-container .faq-card h2 {
-  padding-top: 10%;
-}
-.faq-container .faq-card .faq-content-top {
-  margin-bottom: 0;
-  width: 90%;
-  background-image: url(../images/login_hero.svg);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: right;
-  background-position-y: center;
+.faq-container .faq-card .faq-content-top img {
+  height: 300px;
 }
 .faq-container .faq-card .faq-content-mid {
   width: 90%;
-  margin-bottom: -5%;
+  margin-bottom: 2%;
 }
 .faq-container .faq-card .faq-content-mid h2 {
   font-size: 2.4rem;
 }
+.faq-container .faq-card .faq-content-mid span {
+  color: #6200ee;
+  font-weight: bolder;
+}
 .faq-container .faq-card .faq-content-bot {
-  text-align: center;
+  text-align: left;
   width: 90%;
+  height: 60%;
 }
 
 /*# sourceMappingURL=faq.css.map */
