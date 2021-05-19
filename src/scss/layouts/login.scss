@@ -15,7 +15,7 @@
     h2 {
       padding-top: 10%;
     }
-    .login_content_top {
+    .login-content-top {
       margin-bottom: 0;
       width: 90%;
       background-image: url(../images/login_hero.svg);
@@ -24,7 +24,7 @@
       background-position: right;
       background-position-y: center;
     }
-    .login_content_mid {
+    .login-content-mid {
       width: 90%;
       margin-bottom: -5%;
 
@@ -32,11 +32,11 @@
         font-size: 2.4rem;
       }
     }
-    .login_content_bot {
+    .login-content-bot {
       text-align: center;
       width: 90%;
 
-      .username_field {
+      .username-field {
         width: 100%;
         height: 4.5rem;
         border: solid 1px #6200ee;
@@ -44,10 +44,10 @@
         padding: 0px 10px;
         font-size: 1.7rem;
       }
-      .username_field:focus {
+      .username-field:focus {
         outline: none;
       }
-      .login_button {
+      .login-button {
         margin-top: 40px;
         width: 20%;
         height: 3.2rem;
