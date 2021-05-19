@@ -12,6 +12,7 @@ const answerBox = document.querySelector(".answer-box");
 const userName = document.querySelector("#userName");
 const playerName = document.querySelector(".player-name");
 const res = document.querySelector(".res");
+const start = document.querySelector(".start-quiz");
 // URL links for the questions
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -54,6 +55,7 @@ function myFunction1() {
   document.querySelector(".question3").style.display = "none";
 
   document.querySelector(".question4").style.display = "none";
+  document.querySelector(".question5").style.display = "none";
 }
 
 function myFunction2() {
@@ -64,6 +66,7 @@ function myFunction2() {
   document.querySelector(".question3").style.display = "none";
 
   document.querySelector(".question4").style.display = "none";
+  document.querySelector(".question5").style.display = "none";
 }
 
 function myFunction3() {
@@ -74,6 +77,7 @@ function myFunction3() {
   document.querySelector(".question3").style.display = "block";
 
   document.querySelector(".question4").style.display = "none";
+  document.querySelector(".question5").style.display = "none";
 }
 
 function myFunction4() {
@@ -84,6 +88,17 @@ function myFunction4() {
   document.querySelector(".question3").style.display = "none";
 
   document.querySelector(".question4").style.display = "block";
+  document.querySelector(".question5").style.display = "none";
+}
+function myFunction5() {
+  document.querySelector(".question1").style.display = "none";
+
+  document.querySelector(".question2").style.display = "none";
+
+  document.querySelector(".question3").style.display = "none";
+
+  document.querySelector(".question4").style.display = "none";
+  document.querySelector(".question5").style.display = "block";
 }
 
 function fetchEasyData() {
@@ -161,10 +176,11 @@ function fetchDifData() {
           answers = data2["incorrect_answers"]
             .concat(data2["correct_answer"])
             .sort();
-          question.innerHTML = `<div class="question1">${data[props][0]["question"]}</div><br>
-          <div class="question2" style="display: none;">${data[props][1]["question"]}</div><br>
-          <div class="question3" style="display: none;">${data[props][2]["question"]}</div><br>
-          <div class="question4" style="display: none;">${data[props][3]["question"]}</div>`;
+          question.innerHTML = `<div class="question1">${data[props][0]["question"]}</div>
+          <div class="question2" style="display: none;">${data[props][1]["question"]}</div>
+          <div class="question3" style="display: none;">${data[props][2]["question"]}</div>
+          <div class="question4" style="display: none;">${data[props][3]["question"]}</div>
+          <div class="question5" style="display: none;">${data[props][4]["question"]}</div>`;
           // console.log(answers);
           for (let i = 0; i < answers.length; i++) {
             answerBox.innerHTML = `<div class="answer-one">
@@ -218,3 +234,9 @@ hide.addEventListener("change", () => {
     list.style.display = "block";
   }
 });
+const startQuiz = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  quizContainer.style.display = "block";
+};
+start.addEventListener("click", startQuiz);
