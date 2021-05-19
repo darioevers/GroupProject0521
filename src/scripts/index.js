@@ -75,11 +75,9 @@ const openCloseMenu = () => {
   if (close) {
     hamburgerMenuIcon.classList.toggle("open");
     navigation.style.display = "block";
-    // navigation.classList.toggle("active");
   } else {
     hamburgerMenuIcon.classList.toggle("open");
     navigation.style.display = "none";
-    //  navigation.classList.toggle("active");
   }
   close = !close;
 };
@@ -98,15 +96,13 @@ username.addEventListener("keyup", registerUsername);
 const startGame = ()=>{
   console.log(user.lenght);
   if (user.length < 1){
-    username.setAttribute("placeholder", "Type your name here :)")
+    username.setAttribute("placeholder", "Type your name here :)");
   } else {
     mainMenuContainer.style.display= "block";
     welcomeMessage.innerHTML = `Welcome, ${user}!`;
     userNav.innerHTML = `${user}`;
     loginContainer.style.display= "none";
-    
   }
- 
 }
 play.addEventListener("click", startGame);
 
