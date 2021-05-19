@@ -1,9 +1,8 @@
 .quiz-container {
-  display: block;
-  margin: 15vh auto;
+  display: none;
+  margin: 22vh auto;
   width: 900px;
   position: relative;
-  top: 40%;
 }
 .quiz-container .question-counter {
   position: absolute;

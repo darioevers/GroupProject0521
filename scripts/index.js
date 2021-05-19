@@ -39,17 +39,26 @@ function fetchEasyData() {
     .catch((err) => console.log(`So this is what happened ${err}`));
 }
 
-// asdasdasasdsadasdsadas
 
-// DOM element selector
+
+// DOM ELEMENT SELECTORS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
-const question = document.querySelector(".question");
+// const question = document.querySelector(".question");
 const answer = document.querySelector(".answer");
 const mainContainer = document.querySelector(".main_container");
-const quizMainContainer = document.querySelector(".quiz-main-container");
+const quizContainer = document.querySelector(".quiz-container");
 const startButton = document.querySelector("#startButton");
+const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
+const username = document.querySelector(".username-field");
+const play = document.querySelector(".login-button");
+const loginContainer = document.querySelector(".login-container");
+const  welcomeMessage = document.querySelector(".welcome-message");
+const userNav = document.querySelector(".username");
+const start = document.querySelector(".start-quiz");
+const mainMenuContainer = document.querySelector(".main-menu-container");
+const homeButton = document.querySelector(".home-button");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
@@ -58,23 +67,75 @@ const mediumQuestions =
 const hardQuestions =
   "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
 
-const menuClick = () => {
-  hamburgerMenu.style.display = "none";
-  navigation.style.display = "inherit";
+
+
+//FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
+let close = true;
+const openCloseMenu = () => {
+  if (close) {
+    hamburgerMenuIcon.classList.toggle("open");
+    navigation.style.display = "block";
+  } else {
+    hamburgerMenuIcon.classList.toggle("open");
+    navigation.style.display = "none";
+  }
+  close = !close;
 };
+hamburgerMenuIcon.addEventListener("click", openCloseMenu);
 
-hamburgerMenu.addEventListener("click", menuClick);
-closeMenu.addEventListener("click", () => {
-  hamburgerMenu.style.display = "inherit";
-  navigation.style.display = "none";
-});
+//FUNCTION FOR STORING USERNAME
+let user = "";
+function registerUsername (e){
+  console.dir(e.target.value);
+  user = e.target.value;
+  console.log(user);
+}
+username.addEventListener("keyup", registerUsername);
 
-window.addEventListener(
-  "load",
-  () => (quizMainContainer.style.display = "none")
-);
+//FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
+const startGame = ()=>{
+  console.log(user.lenght);
+  if (user.length < 1){
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else {
+    mainMenuContainer.style.display= "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display= "none";
+  }
+}
+play.addEventListener("click", startGame);
 
-startButton.addEventListener("click", () => {
-  mainContainer.style.display = "none";
-  quizMainContainer.style.display = "inherit";
-});
+//FUNCTION FOR STARTING THE QUIZ
+const startQuiz = ()=> {
+  homeButton.style.display="block";
+  mainMenuContainer.style.display= "none";
+  quizContainer.style.display= "block";
+}
+start.addEventListener("click", startQuiz);
+
+function goHome (){
+  quizContainer.style.display= "none";
+  mainMenuContainer.style.display= "block";
+}
+homeButton.addEventListener("click", goHome);
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
+// hamburgerMenu.addEventListener("click", menuClick);
+// closeMenu.addEventListener("click", () => {
+//   hamburgerMenu.style.display = "inherit";
+//   navigation.style.display = "none";
+// });

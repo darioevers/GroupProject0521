@@ -1,8 +1,8 @@
 .leaderboard-container {
-  display: block;
+  display: none;
   height: 650px;
   width: 1024px;
-  margin: 7vh auto;
+  margin: 15vh auto;
   position: relative;
 }
 .leaderboard-container .leaderboard-header {

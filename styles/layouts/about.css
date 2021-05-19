@@ -1,3 +1,39 @@
-
+.about-container {
+  display: none;
+  margin: 15vh auto;
+  width: 900px;
+  position: relative;
+}
+.about-container .about-card {
+  height: 550px;
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.about-container .about-card h2 {
+  padding-top: 10%;
+}
+.about-container .about-card .about-content-top {
+  margin-bottom: 0;
+  width: 90%;
+  background-image: url(../images/login_hero.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: center;
+}
+.about-container .about-card .about-content-mid {
+  width: 90%;
+  margin-bottom: -5%;
+}
+.about-container .about-card .about-content-mid h2 {
+  font-size: 2.4rem;
+}
+.about-container .about-card .about-content-bot {
+  text-align: center;
+  width: 90%;
+}
 
 /*# sourceMappingURL=about.css.map */

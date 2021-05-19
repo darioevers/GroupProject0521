@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/main.css" />
-    <script src="./scripts/index.js"></script>
     <script
       src="https://kit.fontawesome.com/e6bb2b1e79.js"
       crossorigin="anonymous"
@@ -15,7 +14,7 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>QUIZ</title>
   </head>
   <body>
     <header>
@@ -25,34 +24,48 @@
           <div class="username-container">
             <i class="fas fa-user-circle"></i>
             <p class="username">Username</p>
-            <p class="user-points">40/100 <span class="target">⦿</span></p>
+            <p class="user-points">00/100 <span class="target">⦿</span></p>
           </div>
-          <button class="close-menu"><i class="fas fa-times"></i></button>
         </div>
         <div class="menu-divider"></div>
         <ul>
           <li>
-            <a href="#"><span><i class="fas fa-graduation-cap"></i></span> QUIZ</a>
+            <a href="#"
+              ><span><i class="fas fa-graduation-cap"></i></span> QUIZ</a
+            >
           </li>
           <li>
-            <a href="#"><span><i class="fas fa-chart-line"></i></span> HALL OF FAME</a>
+            <a href="#"
+              ><span><i class="fas fa-chart-line"></i></span> HALL OF FAME</a
+            >
           </li>
           <li>
-            <a href="#"><span><i class="fas fa-users-cog"></i></span> ABOUT</a>
+            <a href="#"
+              ><span><i class="fas fa-users-cog"></i></span> ABOUT</a
+            >
           </li>
           <li>
-            <a href="#"> <span><i class="fas fa-bookmark"></i></span> FAQ</a>
+            <a href="#">
+              <span><i class="fas fa-bookmark"></i></span> FAQ</a
+            >
           </li>
           <li>
-            <a href="#"><span><i class="fas fa-undo-alt"></i></span> RESTART</a>
+            <a href="#"
+              ><span><i class="fas fa-undo-alt"></i></span> RESTART</a
+            >
           </li>
         </ul>
       </nav>
       <!-- TOP BUTTONS -->
-      <button class="hamburger-menu" onclick="menuClick()">
-        <i class="fas fa-bars"></i></i>
+      <div class="hamburger-menu-icon">
+        <div class="menu-lines"></div>
+        <div class="menu-lines"></div>
+        <div class="menu-lines"></div>
+        <div class="menu-lines"></div>
+      </div>
+      <button class="light-dark-mode" onclick="lightDarkMode()">
+        <i class="fas fa-adjust"></i>
       </button>
-      <button class="light-dark-mode" onclick="lightDarkMode()"><i class="fas fa-adjust"></i></button>
     </header>
     <!-- MAIN SECTION -->
     <main>
@@ -60,22 +73,22 @@
       <section class="login-container">
         <div class="login-card">
           <!-- CONTENT -->
-          <div class="login_content_top">
+          <div class="login-content-top">
             <!-- <h2>What's your name?</h2> -->
           </div>
           <!-- CONTENT -->
-          <div class="login_content_mid">
+          <div class="login-content-mid">
             <h2>What's your name?</h2>
           </div>
           <!-- LOGIN BUTTON -->
-          <div class="login_content_bot">
+          <div class="login-content-bot">
             <input
               type="text"
               id="userName"
-              class="username_field"
+              class="username-field"
               placeholder=""
             />
-            <button id="login_button" class="login_button">QUIZ!</button>
+            <button id="login-button" class="login-button">PLAY!</button>
           </div>
         </div>
       </section>
@@ -83,28 +96,28 @@
       <section class="main-menu-container">
         <div class="main-menu-card">
           <!-- MAIN MENU USER GREETING -->
-          <div class="main-menu_content_top">
-            <h1>Welcome, username!</h1>
+          <div class="main-menu-content-top">
+            <h1 class="welcome-message">Welcome, username!</h1>
           </div>
           <!-- MAIN MENU BOXES -->
-          <div class="main-menu_content_bot">
+          <div class="main-menu-content-bot">
             <div class="main-menu-box">
-                <i class="fas fa-graduation-cap"></i>
+              <i class="fas fa-graduation-cap"></i>
               <h2>QUIZ</h2>
-              <button>click</button>
+              <button class="start-quiz">start</button>
             </div>
             <div class="main-menu-box">
-                <i class="fas fa-bookmark"></i>
+              <i class="fas fa-bookmark"></i>
               <h2>FAQ</h2>
               <button>click</button>
             </div>
             <div class="main-menu-box">
-                <i class="fas fa-chart-line"></i>
+              <i class="fas fa-chart-line"></i>
               <h2>LEADERBOARD</h2>
               <button>click</button>
             </div>
             <div class="main-menu-box">
-                <i class="fas fa-users-cog"></i>
+              <i class="fas fa-users-cog"></i>
               <h2>ABOUT</h2>
               <button>click</button>
             </div>
@@ -170,11 +183,42 @@
           </div>
         </div>
       </section>
+      <!-- ABOUT -->
+      <section class="about-container">
+        <div class="about-card">
+          <!-- CONTENT -->
+          <div class="about-content-top">
+            <!-- <h2>What's your name?</h2> -->
+          </div>
+          <!-- CONTENT -->
+          <div class="about-content-mid">
+            <h2>ABOUT</h2>
+          </div>
+          <!-- LOGIN BUTTON -->
+          <div class="about-content-bot"></div>
+        </div>
+      </section>
+      <!-- FAQ -->
+      <section class="faq-container">
+        <div class="faq-card">
+          <!-- CONTENT -->
+          <div class="faq-content-top">
+            <!-- <h2>What's your name?</h2> -->
+          </div>
+          <!-- CONTENT -->
+          <div class="faq-content-mid">
+            <h2>FAQ</h2>
+          </div>
+          <!-- LOGIN BUTTON -->
+          <div class="faq-content-bot"></div>
+        </div>
+      </section>
     </main>
     <!-- FOOTER AND FOOTERBUTTONS -->
     <footer>
       <button class="home-button"><i class="fas fa-home"></i></button>
       <button class="sound-button"><i class="fas fa-volume-mute"></i></button>
     </footer>
+    <script src="./scripts/index.js"></script>
   </body>
 </html>

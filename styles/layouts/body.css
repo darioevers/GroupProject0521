@@ -4,4 +4,20 @@
   box-sizing: border-box;
 }
 
+section {
+  height: 100vh;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.wronganswer {
+  background-color: red;
+}
+
+.correctanswer {
+  background-color: green;
+}
+
 /*# sourceMappingURL=body.css.map */
