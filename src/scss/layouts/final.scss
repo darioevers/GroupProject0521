@@ -1,13 +1,13 @@
-// ============================================= FAQ SCREEN
-.faq-container {
-  display: block; // LOGIN SCREEN DISPLAY
+// ============================================= FINAL SCREEN
+.final-container {
+  display: none; // FINAL SCREEN DISPLAY
   margin: 0 auto;
   width: 900px;
   position: relative;
   height: 80vh;
   align-items: center;
 
-  .faq-card {
+  .final-card {
     margin-top: 16vh;
     height: 80vh;
     width: 900px;
@@ -15,12 +15,28 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    .faq-content-top {
+    button {
+      margin: -10% 0% 4% 0%;
+      background-color: #6200ee;
+      color: white;
+      width: 7rem;
+      height: 2.3rem;
+      border-radius: 18px;
+      transition-duration: 0.8s;
+    }
+    button:hover {
+      transition-duration: 0.8s;
+      transform: scale(1.2);
+    }
+    .final-content-top {
       img {
         height: 300px;
       }
     }
-    .faq-content-mid {
+    .final-content-top {
+      margin-bottom: 5%;
+    }
+    .final-content-mid {
       width: 90%;
       margin-bottom: 2%;
 
@@ -32,10 +48,13 @@
         font-weight: bolder;
       }
     }
-    .faq-content-bot {
+    .final-content-bot {
       text-align: left;
       width: 90%;
       height: 60%;
+      .buttonflex {
+        display: flex;
+      }
     }
   }
 }

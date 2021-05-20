@@ -31,10 +31,38 @@ body {
   background-color: white;
 }
 
-// DARK MODE
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+body.light-theme h1, h2, h3, h4, h5, h6 {
+  color: black;
+}
+
+body.light-theme p {
+  color: black;
+}
+
+// DARK MODE START
 
 body.dark-theme {
   background-color: #2b2e4a;
+}
+
+body.dark-theme h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+body.dark-theme p {
+  color: white;
+}
+
+body.welcomewhatsurname {
+  color: black;
+}
+
+body.dark-theme .welcomewhatsurname {
+  color: white;
 }
 
 // LOGIN SCREEN
@@ -47,3 +75,14 @@ body.dark-theme .username-field {
   border: #903749 10px solid;
 }
 
+// QUIZ SCREEN
+
+body.dark-theme .answer {
+  color: white;
+}
+
+body.dark-theme span {
+  color: white;
+  font-family: "Roboto", sans-serif;
+
+}
