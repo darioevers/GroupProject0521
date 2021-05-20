@@ -7,8 +7,9 @@ const answerTwo = document.querySelector(".answer-two");
 const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
+const userPoints = document.querySelector(".user-points");
 
-
+let points = 0;
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 const mediumQuestions =
@@ -20,14 +21,13 @@ const hardQuestions =
   // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
   let counter = 0 ;
 function fecthEasyQuestions() {
-  answerCard.classList.remove("wrong");
-  answerCard.classList.remove("correct");
+//  document.querySelector(".correct").style.backgroundColor="white";
   counter++; 
   if (counter <= 15){
    fetch(easyQuestions)
     .then((response) => response.json())
     .then((data)=>{
-      // console.log(data.results[0]);
+      // Assingning the correct and incorrect asnwers to variables
       let question = data.results[0].question;
       let correctAnswer ="," + data.results[0].correct_answer;
       let allAnswers = data.results[0].incorrect_answers + correctAnswer;
@@ -36,22 +36,12 @@ function fecthEasyQuestions() {
      console.log(arrAllAnswers);
 
      let firstAnswer = arrAllAnswers[Math.floor(Math.random()*4)];
-     console.log(firstAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
 
-     console.log(arrAllAnswers);
-
      let secondAnswer = arrAllAnswers[Math.floor(Math.random()*3)];
-     console.log(secondAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
 
-     console.log(arrAllAnswers);
-
      let thirdAnswer = arrAllAnswers[Math.floor(Math.random()*2)];
-     console.log(thirdAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
     
      console.log(arrAllAnswers);
@@ -62,24 +52,33 @@ function fecthEasyQuestions() {
       answerTwo.innerHTML = `${secondAnswer}`;
       answerThree.innerHTML = `${thirdAnswer}`;
       answerFour.innerHTML = `${arrAllAnswers}`;
-    //   console.log(data.results[0].correct_answer);
-    //   //adding event listener 
-    //   function calculating(e){
-    //     console.log(e.target.innerHTML);
-    //     if (e.target.innerHTML == data.results[0].correct_answer){
-    //         answerCard.classList.add("correct");
-    //     } else{
-    //       answerCard.classList.add("wrong");
-    //     }
+
+      console.log(data.results[0].correct_answer);
+      //adding event listener and function for user feedback and point calc
+      
+      function calculating(e){
+        console.log(e.target.textContent);
         
-    //  }
-    //   answerCard.addEventListener("click", calculating);
+        if (e.target.textContent.includes(data.results[0].correct_answer)){
+          answerCard.classList.toggle("correct");
+          document.querySelector(".correct").style.backgroundColor="green";
+          points+= 10;
+        } else{
+          answerCard.classList.toggle("wrong");
+          document.querySelector(".correct").style.backgroundColor="red";
+          points-= 10;
+        }
+        userPoints.innerHTML = `${points}/150`
+        console.log(points);
+     }
+      answerCard.addEventListener("click", calculating);
      
       })
       .catch((err)=> console.log(err));
       
     } else{
-
+      quizContainer.style.display = "none";
+      leaderboardContainer.style.diplay = "block";
     }
   }
 nextQuestion.addEventListener("click", fecthEasyQuestions);
