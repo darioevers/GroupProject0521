@@ -1,7 +1,7 @@
-# GroupProject0521![Screenshot from 2021-04-27 15-17-19]()
+# GroupProject0521!
 
 ## Quiz Game App : 
-https://github.com/darioevers/GroupProject0521/blob/meriem/src/scss/layouts/quiz.scss
+https://darioevers.github.io/GroupProject0521/
 
 
 ## Table of contents:
