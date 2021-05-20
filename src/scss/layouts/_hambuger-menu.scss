@@ -1,0 +1,62 @@
+.hamburger-menu-icon {
+  width: 40px;
+  height: 30px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  transition: 0.5s ease-in-out;
+  transform: rotate(0deg);
+  position: fixed;
+  cursor: pointer;
+  z-index: 999;
+  div {
+    height: 4px;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    background: gray;
+    border-radius: 10px;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+  :nth-child(1) {
+    top: 0px;
+  }
+  :nth-child(2),
+  :nth-child(3) {
+    top: 12px;
+  }
+  :nth-child(4) {
+    top: 24px;
+  }
+}
+
+// animation for the hamburger-menu
+.hamburger-menu-icon.open {
+  width: 20px;
+  height: 20px;
+  position: fixed;
+  top: 20px;
+  left: 17vw;
+  :nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+  :nth-child(2) {
+    transform: rotate(45deg);
+  }
+  :nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  :nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+  }
+}
+
+nav.active {
+  left: 0;
+  transition: left linear 0.5s;
+}

@@ -1,40 +1,41 @@
 // ============================================= FAQ SCREEN
 .faq-container {
-  display: block; // LOGIN SCREEN DISPLAY
-  margin: 15vh auto;
+  display: none; // LOGIN SCREEN DISPLAY
+  margin: 0 auto;
   width: 900px;
   position: relative;
+  height: 80vh;
+  align-items: center;
 
   .faq-card {
-    height: 550px;
+    margin-top: 16vh;
+    height: 80vh;
     width: 900px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    h2 {
-      padding-top: 10%;
-    }
     .faq-content-top {
-      margin-bottom: 0;
-      width: 90%;
-      background-image: url(../images/login_hero.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: right;
-      background-position-y: center;
+      img {
+        height: 300px;
+      }
     }
     .faq-content-mid {
       width: 90%;
-      margin-bottom: -5%;
+      margin-bottom: 2%;
 
       h2 {
         font-size: 2.4rem;
       }
+      span {
+        color: #6200ee;
+        font-weight: bolder;
+      }
     }
     .faq-content-bot {
-      text-align: center;
+      text-align: left;
       width: 90%;
+      height: 60%;
     }
   }
 }

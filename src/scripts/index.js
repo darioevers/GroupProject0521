@@ -7,14 +7,17 @@ const answerTwo = document.querySelector(".answer-two");
 const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
+
 const userPoints = document.querySelector(".user-points");
 const scores = document.querySelector(".score");
 
 let points = 0;
+
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 const mediumQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
+
 const hardQuestions = "https://opentdb.com/api.php?amount=1&difficulty=hard";
 let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
 // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
@@ -121,6 +124,7 @@ nextQuestion.addEventListener("click", fecthEasyQuestions);
 //     .catch((err) => console.log(`So this is what happened ${err}`));
 // }
 
+
 // DOM ELEMENT SELECTORS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
@@ -140,7 +144,9 @@ const play = document.querySelector(".login-button");
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
+
 const mainContainer = document.querySelector(".main_container");
+
 // IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
@@ -148,6 +154,7 @@ const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
 const restart = document.querySelector(".reload");
 const themeButton = document.querySelector(".theme-button");
+
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -182,7 +189,120 @@ const startGame = () => {
     userNav.innerHTML = `${user}`;
     loginContainer.style.display = "none";
   }
+
 };
+hamburgerMenuIcon.addEventListener("click", openCloseMenu);
+
+//FUNCTION FOR STORING USERNAME
+let user = "";
+function registerUsername(e) {
+  console.dir(e.target.value);
+  user = e.target.value;
+  console.log(user);
+}
+username.addEventListener("keyup", registerUsername);
+
+//FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
+const startGame = () => {
+  if (user.length < 1) {
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else {
+    mainMenuContainer.style.display = "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display = "none";
+  }
+}; 
+
+const startGameTwo = (e)=>{
+  if (user == ""){
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else if (event.key == "Enter"){
+    mainMenuContainer.style.display= "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display= "none";
+  } 
+}
+
+play.addEventListener("click", startGame);
+username.addEventListener("keypress", startGameTwo);
+
+//FUNCTION FOR STARTING THE QUIZ
+const startQuiz = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  quizContainer.style.display = "block";
+  fecthEasyQuestions();
+};
+start.addEventListener("click", startQuiz);
+// CORNER BUTTONS
+// LIGHT DARK MODE
+const toggleTheme = () => {
+  document.body.classList.toggle("dark-theme");
+};
+themeButton.addEventListener("click", toggleTheme);
+
+function goHome() {
+  mainMenuContainer.style.display = "block";
+  quizContainer.style.display = "none";
+  aboutContainer.style.display = "none";
+  leaderboardContainer.style.display = "none";
+  faqContainer.style.display = "none";
+  loginContainer.style.display = "none";
+}
+homeButton.addEventListener("click", goHome);
+
+//FUNCTION FOR THE THE LOGOUT ITEM ON THE MENU
+function logOut (){
+  setTimeout("location.reload(true);", 0.5);
+}
+restart.addEventListener("click", logOut);
+
+// MAIN MENU BUTTONS
+// ABOUT
+const openAbout = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  aboutContainer.style.display = "block";
+};
+openAboutButton.addEventListener("click", openAbout);
+
+// FAQ
+const openFAQ = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  faqContainer.style.display = "block";
+};
+openFAQButton.addEventListener("click", openFAQ);
+
+// LEADERBOARD
+const openLeaderboard = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  leaderboardContainer.style.display = "block";
+};
+openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
 
 const startGameTwo = (e) => {
   if (user == "") {
@@ -278,3 +398,4 @@ openLeaderboardButton.addEventListener("click", openLeaderboard);
 //   hamburgerMenu.style.display = "inherit";
 //   navigation.style.display = "none";
 // });
+

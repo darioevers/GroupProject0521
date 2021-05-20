@@ -1,13 +1,15 @@
+@import "../abstracts/mixins";
+
 // ============================================= LOGIN SCREEN
 .about-container {
-  display: block; // LOGIN SCREEN DISPLAY
-  margin: 15vh auto;
-  width: 900px;
+  display: none; // LOGIN SCREEN DISPLAY
+  margin: 0 auto;
+  width: 1100px;
   position: relative;
 
   .about-card {
-    height: 550px;
-    width: 900px;
+    height: 80vh;
+    width: 1100px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -15,18 +17,30 @@
     h2 {
       padding-top: 10%;
     }
-    .about-content-top {
-      margin-bottom: 0;
-      width: 90%;
-      background-image: url(../images/login_hero.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: right;
-      background-position-y: center;
+    span {
+      color: #6200ee;
+      font-weight: bolder;
+    }
+    .about-box {
+      width: 220px;
+      height: 220px;
+      margin: 0px 15px;
+      box-shadow: 2px 4px 15px 2px #a162fa1f;
+      .leftaboutbox {
+        @include left_nomargin;
+      }
+      .rightaboutbox {
+        @include right_nomargin;
+      }
+      i {
+        font-size: 3rem;
+        padding: 5%;
+        margin-top: 20%;
+      }
     }
     .about-content-mid {
       width: 90%;
-      margin-bottom: -5%;
+      margin-bottom: -15%;
 
       h2 {
         font-size: 2.4rem;
@@ -35,6 +49,10 @@
     .about-content-bot {
       text-align: center;
       width: 90%;
+      display: flex;
+      h2 {
+        font-family: "Roboto", sans-serif;
+      }
     }
   }
 }
