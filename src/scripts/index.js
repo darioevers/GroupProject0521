@@ -137,10 +137,12 @@ const quizContainer = document.querySelector(".quiz-container");
 const aboutContainer = document.querySelector(".about-container");
 const faqContainer = document.querySelector(".faq-container");
 const leaderboardContainer = document.querySelector(".leaderboard-container");
+const finalContainer = document.querySelector(".final-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 const username = document.querySelector(".username-field");
 const play = document.querySelector(".login-button");
+const printButton = document.querySelector(".printbutton");
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
@@ -255,17 +257,30 @@ openFAQButton.addEventListener("click", openFAQ);
 // LEADERBOARD
 const openLeaderboard = () => {
   homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
   leaderboardContainer.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  finalContainer.style.display = "none";
 };
 openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+
+// ADDITIONAL FUNCTIONS
+// PRINT PAGE
+
+const printPage = () => {
+  window.print();
+};
+printButton.addEventListener("click", printPage);
 
 // window.addEventListener(
 //   "load",
 //   () => (quizMainContainer.style.display = "none")
 // );
 // window.addEventListener(
-//   "load",
+//   "
+  
+  
+  ",
 //   () => (quizMainContainer.style.display = "none")
 // );
 
@@ -284,3 +299,4 @@ openLeaderboardButton.addEventListener("click", openLeaderboard);
 //   hamburgerMenu.style.display = "inherit";
 //   navigation.style.display = "none";
 // });
+
