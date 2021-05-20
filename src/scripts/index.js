@@ -8,84 +8,76 @@ const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
 
-
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 const mediumQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
-const hardQuestions =
-  "https://opentdb.com/api.php?amount=1&difficulty=hard";
-  let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
-  // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
-  // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
-  let counter = 0 ;
+const hardQuestions = "https://opentdb.com/api.php?amount=1&difficulty=hard";
+let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
+// let randomAnswer = answersCard[Math.floor(Math.random()*3)];
+// document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
+let counter = 0;
 function fecthEasyQuestions() {
   answerCard.classList.remove("wrong");
   answerCard.classList.remove("correct");
-  counter++; 
-  if (counter <= 15){
-   fetch(easyQuestions)
-    .then((response) => response.json())
-    .then((data)=>{
-      // console.log(data.results[0]);
-      let question = data.results[0].question;
-      let correctAnswer ="," + data.results[0].correct_answer;
-      let allAnswers = data.results[0].incorrect_answers + correctAnswer;
-      //randomizing the answers 
-     let arrAllAnswers = allAnswers.split(",");
-     console.log(arrAllAnswers);
+  counter++;
+  if (counter <= 15) {
+    fetch(easyQuestions)
+      .then((response) => response.json())
+      .then((data) => {
+        // console.log(data.results[0]);
+        let question = data.results[0].question;
+        let correctAnswer = "," + data.results[0].correct_answer;
+        let allAnswers = data.results[0].incorrect_answers + correctAnswer;
+        //randomizing the answers
+        let arrAllAnswers = allAnswers.split(",");
+        console.log(arrAllAnswers);
 
-     let firstAnswer = arrAllAnswers[Math.floor(Math.random()*4)];
-     console.log(firstAnswer);
+        let firstAnswer = arrAllAnswers[Math.floor(Math.random() * 4)];
+        console.log(firstAnswer);
 
-     arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
+        arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
 
-     console.log(arrAllAnswers);
+        console.log(arrAllAnswers);
 
-     let secondAnswer = arrAllAnswers[Math.floor(Math.random()*3)];
-     console.log(secondAnswer);
+        let secondAnswer = arrAllAnswers[Math.floor(Math.random() * 3)];
+        console.log(secondAnswer);
 
-     arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
+        arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
 
-     console.log(arrAllAnswers);
+        console.log(arrAllAnswers);
 
-     let thirdAnswer = arrAllAnswers[Math.floor(Math.random()*2)];
-     console.log(thirdAnswer);
+        let thirdAnswer = arrAllAnswers[Math.floor(Math.random() * 2)];
+        console.log(thirdAnswer);
 
-     arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
-    
-     console.log(arrAllAnswers);
-      //attaching the question variables into HTML
-      questionCard.innerHTML = `${question}`;
-      counterCard.innerHTML = `${counter} `;
-      answerOne.innerHTML = `${firstAnswer}`;
-      answerTwo.innerHTML = `${secondAnswer}`;
-      answerThree.innerHTML = `${thirdAnswer}`;
-      answerFour.innerHTML = `${arrAllAnswers}`;
-    //   console.log(data.results[0].correct_answer);
-    //   //adding event listener 
-    //   function calculating(e){
-    //     console.log(e.target.innerHTML);
-    //     if (e.target.innerHTML == data.results[0].correct_answer){
-    //         answerCard.classList.add("correct");
-    //     } else{
-    //       answerCard.classList.add("wrong");
-    //     }
-        
-    //  }
-    //   answerCard.addEventListener("click", calculating);
-     
+        arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
+
+        console.log(arrAllAnswers);
+        //attaching the question variables into HTML
+        questionCard.innerHTML = `${question}`;
+        counterCard.innerHTML = `${counter} `;
+        answerOne.innerHTML = `${firstAnswer}`;
+        answerTwo.innerHTML = `${secondAnswer}`;
+        answerThree.innerHTML = `${thirdAnswer}`;
+        answerFour.innerHTML = `${arrAllAnswers}`;
+        //   console.log(data.results[0].correct_answer);
+        //   //adding event listener
+        //   function calculating(e){
+        //     console.log(e.target.innerHTML);
+        //     if (e.target.innerHTML == data.results[0].correct_answer){
+        //         answerCard.classList.add("correct");
+        //     } else{
+        //       answerCard.classList.add("wrong");
+        //     }
+
+        //  }
+        //   answerCard.addEventListener("click", calculating);
       })
-      .catch((err)=> console.log(err));
-      
-    } else{
-
-    }
+      .catch((err) => console.log(err));
+  } else {
   }
+}
 nextQuestion.addEventListener("click", fecthEasyQuestions);
-
-
-
 
 // function fetchEasyData() {
 //   // this is a GET req
@@ -101,7 +93,7 @@ nextQuestion.addEventListener("click", fecthEasyQuestions);
 //           answers = data2["incorrect_answers"]
 //             .concat(data2["correct_answer"])
 //             .sort();
-//           userCard1 += `<li> <div>${data2["question"]}</h3></div> 
+//           userCard1 += `<li> <div>${data2["question"]}</h3></div>
 //           </li>`;
 //           for (let i = 0; i < answers.length; i++) {
 //             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
@@ -146,7 +138,7 @@ const printButton = document.querySelector(".printbutton");
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
-const mainContainer = document.querySelector(".main_container"); 
+const mainContainer = document.querySelector(".main_container");
 // IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
@@ -154,8 +146,18 @@ const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
 const restart = document.querySelector(".reload");
 const themeButton = document.querySelector(".theme-button");
+const aboutButton = document.querySelector(".about-button"); // index.html line 42
+const faqButton = document.querySelector(".faq-button"); // index.html line 47
+const resButton = document.querySelector(".res-button"); // index.html line 52
+const quizNavButton = document.querySelector(".quiz-start"); // Added class quiz-start in index.html/ line 32
+const hallOfFame = document.querySelector(".hallof-fame"); // added hallof-fame class in index.html/ line 37
 
-
+// quizNavButton.addEventListener("click", startQuiz); // Event Listener QUIZ from the Side Menu
+// openLeaderboardButton.addEventListener("click", openLeaderboard);
+// hallOfFame.addEventListener("click", openLeaderboard); // Event listener for hall of fame button from Menu
+// aboutButton.addEventListener("click", openAbout);
+// faqButton.addEventListener("click", openFAQ);
+// resButton.addEventListener("click", () => ourLink);
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -190,18 +192,18 @@ const startGame = () => {
     userNav.innerHTML = `${user}`;
     loginContainer.style.display = "none";
   }
-}; 
+};
 
-const startGameTwo = (e)=>{
-  if (user == ""){
+const startGameTwo = (e) => {
+  if (user == "") {
     username.setAttribute("placeholder", "Type your name here :)");
-  } else if (event.key == "Enter"){
-    mainMenuContainer.style.display= "block";
+  } else if (event.key == "Enter") {
+    mainMenuContainer.style.display = "block";
     welcomeMessage.innerHTML = `Welcome, ${user}!`;
     userNav.innerHTML = `${user}`;
-    loginContainer.style.display= "none";
-  } 
-}
+    loginContainer.style.display = "none";
+  }
+};
 
 play.addEventListener("click", startGame);
 username.addEventListener("keypress", startGameTwo);
@@ -232,7 +234,7 @@ function goHome() {
 homeButton.addEventListener("click", goHome);
 
 //FUNCTION FOR THE THE LOGOUT ITEM ON THE MENU
-function logOut (){
+function logOut() {
   setTimeout("location.reload(true);", 0.5);
 }
 restart.addEventListener("click", logOut);
@@ -263,7 +265,6 @@ const openLeaderboard = () => {
 };
 openLeaderboardButton.addEventListener("click", openLeaderboard);
 
-
 // ADDITIONAL FUNCTIONS
 // PRINT PAGE
 
@@ -272,17 +273,16 @@ const printPage = () => {
 };
 printButton.addEventListener("click", printPage);
 
-// window.addEventListener(
-//   "load",
-//   () => (quizMainContainer.style.display = "none")
-// );
-// window.addEventListener(
-//   "
-  
-  
-  ",
-//   () => (quizMainContainer.style.display = "none")
-// );
+// // window.addEventListener(
+// //   "load",
+// //   () => (quizMainContainer.style.display = "none")
+// // );
+// // window.addEventListener(
+// //   "
+
+//   ",
+// //   () => (quizMainContainer.style.display = "none")
+// // );
 
 // startButton.addEventListener("click", () => {
 //   mainContainer.style.display = "none";
@@ -299,4 +299,3 @@ printButton.addEventListener("click", printPage);
 //   hamburgerMenu.style.display = "inherit";
 //   navigation.style.display = "none";
 // });
-
