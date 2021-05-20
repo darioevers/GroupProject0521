@@ -22,9 +22,10 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     position: relative;
     h2 {
-      padding-top: 20%;
+      padding-top: 10%;
     }
     p {
       height: 53px;
@@ -47,6 +48,14 @@
     p:hover {
       background-color: #6200ee;
       color: white;
+    }
+    .correct{
+      color: white;
+      background: green;
+    }
+    .wrong{
+      color: white;
+      background: red;
     }
   }
 }
