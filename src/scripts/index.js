@@ -7,7 +7,9 @@ const answerTwo = document.querySelector(".answer-two");
 const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
-
+const userPoints = document.querySelector(".user-points");
+const feedback = document.querySelector(".feedback");
+const reset = document.querySelector(".reset");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
@@ -16,19 +18,19 @@ const mediumQuestions =
 const hardQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=hard";
   let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
-  // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
-  // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
+
+  
   let counter = 0 ;
 function fecthEasyQuestions() {
-  answerCard.classList.remove("wrong");
-  answerCard.classList.remove("correct");
+  // backgroundStyleTwo = "white";
   counter++; 
   if (counter <= 15){
    fetch(easyQuestions)
     .then((response) => response.json())
     .then((data)=>{
-      // console.log(data.results[0]);
+      // Assingning the correct and incorrect asnwers to variables
       let question = data.results[0].question;
+      window.questionTwo = question;
       let correctAnswer ="," + data.results[0].correct_answer;
       let allAnswers = data.results[0].incorrect_answers + correctAnswer;
       //randomizing the answers 
@@ -36,96 +38,118 @@ function fecthEasyQuestions() {
      console.log(arrAllAnswers);
 
      let firstAnswer = arrAllAnswers[Math.floor(Math.random()*4)];
-     console.log(firstAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
 
-     console.log(arrAllAnswers);
-
      let secondAnswer = arrAllAnswers[Math.floor(Math.random()*3)];
-     console.log(secondAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
 
-     console.log(arrAllAnswers);
-
      let thirdAnswer = arrAllAnswers[Math.floor(Math.random()*2)];
-     console.log(thirdAnswer);
-
      arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
     
      console.log(arrAllAnswers);
       //attaching the question variables into HTML
       questionCard.innerHTML = `${question}`;
       counterCard.innerHTML = `${counter} `;
-      answerOne.innerHTML = `${firstAnswer}`;
-      answerTwo.innerHTML = `${secondAnswer}`;
-      answerThree.innerHTML = `${thirdAnswer}`;
-      answerFour.innerHTML = `${arrAllAnswers}`;
-    //   console.log(data.results[0].correct_answer);
-    //   //adding event listener 
-    //   function calculating(e){
-    //     console.log(e.target.innerHTML);
-    //     if (e.target.innerHTML == data.results[0].correct_answer){
-    //         answerCard.classList.add("correct");
-    //     } else{
-    //       answerCard.classList.add("wrong");
+      // answerOne.innerHTML = `${firstAnswer}`;
+      // answerTwo.innerHTML = `${secondAnswer}`;
+      // answerThree.innerHTML = `${thirdAnswer}`;
+      // answerFour.innerHTML = `${arrAllAnswers}`;
+          answerCard.innerHTML = `
+          <div class="answer-one">
+          <p class="answer">${firstAnswer}</p>
+        </div>
+        <div class="answer-two">
+          <p class="answer">${secondAnswer}</p>
+        </div>
+        <div class="answer-three">
+          <p class="answer">${thirdAnswer}</p>
+        </div>
+        <div class="answer-four">
+          <p class="answer">${arrAllAnswers}</p>
+        </div>`;
+
+      let rightAnswer = data.results[0].correct_answer;
+      window.rightAnswerTwo = rightAnswer;
+      console.log(rightAnswerTwo);
+      //adding event listener and function for user feedback and point calc
+    //   function calculating(e) {
+    //     console.log(e.target.textContent);
+
+    //     if (e.target.textContent.includes(data.results[0].correct_answer)) {
+    //       answerCard.classList.toggle("correct");
+    //       answerCard.style.backgroundColor = "green";
+    //       points += 10;
+    //     } else {
+    //       answerCard.classList.toggle("wrong");
+    //       answerCard.style.backgroundColor = "red";
+    //       points -= 10;
     //     }
-        
-    //  }
+    //     userPoints.innerHTML = `${points}/150`;
+    //     console.log(points);
+    //     document.querySelector(".score").innerHTML = `${points}/150`;
+    //   }
     //   answerCard.addEventListener("click", calculating);
-     
+    // })
       })
       .catch((err)=> console.log(err));
       
     } else{
-
+      quizContainer.style.display = "none";
+      leaderboardContainer.style.diplay = "block";
     }
   }
 nextQuestion.addEventListener("click", fecthEasyQuestions);
 
+let points = 0;
+function calculating (e){
+  let clicked = e.target.textContent;
+  console.log(e.target.textContent)
+  if (clicked == rightAnswerTwo){
+    e.target.style.backgroundColor= "green";
+    setTimeout(() => {
+     points += 10;
+      fecthEasyQuestions();
+    }, 500);
+  } else {
+    e.target.style.backgroundColor = "red";
+    setTimeout(() => {
+      points -= 10;
+      fecthEasyQuestions();
+    }, 500);
+    userPoints.innerHTML = `${points}/150`;
+  }
+  // e.target.style.backgroundColor= "white";
+}
+answerCard.addEventListener("click", calculating);
 
+// answerCard.style.backgroundColor = "white";
+// function calculating(e) {
+//   console.log(e.target.textContent);
 
-
-// function fetchEasyData() {
-//   // this is a GET req
-//   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
-//     .then((response) => response.json())
-//     .then((data) => {
-//       let userCard1 = "<h2>The easy Level </h2>";
-//       for (props in data) {
-//         let questNum = data[props].length / 4;
-//         for (let i = 0; i < questNum; i++) {
-//           let data2 = data[props][i];
-//           let answers = [];
-//           answers = data2["incorrect_answers"]
-//             .concat(data2["correct_answer"])
-//             .sort();
-//           userCard1 += `<li> <div>${data2["question"]}</h3></div> 
-//           </li>`;
-//           for (let i = 0; i < answers.length; i++) {
-//             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
-//             // // if answer is correct
-//             // userAnswer = ` ${answers[i]}<input type='radio' name='question' value= "${answers[i]}" ></input>: checked`;
-//             // if (userAnswer === data2["correct_answer"]) {
-//             //   // color the answers green
-//             //   userCard1.style.color = "lightgreen";
-//             // }
-//             // // if answer is wrong or blank
-//             // else {
-//             //   // color the answers red
-//             //   userCard1.style.color = "red";
-//             // }
-//           }
-//         }
-//       }
-
-//       question.innerHTML = userCard1;
-//     })
-//     .catch((err) => console.log(`So this is what happened ${err}`));
+//   if (e.target.textContent.includes(data.results[0].correct_answer)) {
+//     answerCard.classList.toggle("correct");
+//     answerCard.style.backgroundColor = "green";
+//     points += 10;
+//   } else {
+//     answerCard.classList.toggle("wrong");
+//     answerCard.style.backgroundColor = "red";
+//     points -= 10;
+//   }
+//   userPoints.innerHTML = `${points}/150`;
+//   console.log(points);
+//   document.querySelector(".score").innerHTML = `${points}/150`;
 // }
+// answerCard.addEventListener("click", calculating);
+// })
+// .catch((err) => console.log(err));
+// } else {
+// quizContainer.style.display = "none";
+// leaderboardContainer.style.diplay = "block";
+// }
+// }
+// nextQuestion.addEventListener("click", fecthEasyQuestions);
 
-// DOM ELEMENT SELECTORS
+// DOM ELEMENT SELECTORS FOR NAVIGATIONS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
@@ -261,7 +285,9 @@ const openLeaderboard = () => {
   mainMenuContainer.style.display = "none";
   finalContainer.style.display = "none";
 };
+
 openLeaderboardButton.addEventListener("click", openLeaderboard);
+
 
 
 // ADDITIONAL FUNCTIONS
@@ -299,4 +325,5 @@ printButton.addEventListener("click", printPage);
 //   hamburgerMenu.style.display = "inherit";
 //   navigation.style.display = "none";
 // });
+
 
