@@ -8,6 +8,7 @@ const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
 const userPoints = document.querySelector(".user-points");
+const scores = document.querySelector(".score");
 
 let points = 0;
 const easyQuestions =
@@ -68,9 +69,11 @@ function fecthEasyQuestions() {
           }
           userPoints.innerHTML = `${points}/150`;
           console.log(points);
-          document.querySelector(".score").innerHTML = `${points}/150`;
+
+          console.log(scores);
         }
         answerCard.addEventListener("click", calculating);
+        scores.innerHTML = `    Your Score =${points}/150`;
       })
       .catch((err) => console.log(err));
   } else {
