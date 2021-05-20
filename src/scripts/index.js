@@ -5,18 +5,26 @@ const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
 
 const answer = document.querySelector(".answer");
-const mainContainer = document.querySelector(".main_container");
+const loginContainer = document.querySelector(".login-container");
+const mainMenuContainer = document.querySelector(".main-menu-container");
 const quizContainer = document.querySelector(".quiz-container");
+const aboutContainer = document.querySelector(".about-container");
+const faqContainer = document.querySelector(".faq-container");
+const leaderboardContainer = document.querySelector(".leaderboard-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 const username = document.querySelector(".username-field");
 const play = document.querySelector(".login-button");
 const loginContainer = document.querySelector(".login-container");
+const openAboutButton = document.querySelector(".open-about");
+const openFAQButton = document.querySelector(".open-faq");
+const openLeaderboardButton = document.querySelector(".open-leaderboard");
+const mainContainer = document.querySelector(".main_container"); // IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
-const mainMenuContainer = document.querySelector(".main-menu-container");
 const homeButton = document.querySelector(".home-button");
+const themeButton = document.querySelector(".theme-button");
 
 const aboutContainer = document.querySelector(".about-container");
 const faqContainer = document.querySelector(".faq-container");
@@ -37,6 +45,7 @@ const counter = document.querySelector(".counter");
 const aboutButton = document.querySelector(".about-button"); // index.html line 42
 const faqButton = document.querySelector(".faq-button"); // index.html line 47
 const resButton = document.querySelector(".res-button"); // index.html line 52
+("https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple");
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -104,10 +113,9 @@ function fetchEasyData() {
 }
 
 //FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
-
 const startGame = () => {
-  // console.log(user.lenght);
-  if (user.innerHTML < 1) {
+  console.log(user.lenght);
+  if (user.length < 1) {
     username.setAttribute("placeholder", "Type your name here :)");
   } else {
     mainMenuContainer.style.display = "block";
@@ -139,6 +147,23 @@ const openLeaderboardButton = document.querySelector(".open-leaderboard");
 function goHome() {
   quizContainer.style.display = "none";
   mainMenuContainer.style.display = "block";
+}
+start.addEventListener("click", startQuiz);
+
+// CORNER BUTTONS
+// LIGHT DARK MODE
+const toggleTheme = () => {
+  document.body.classList.toggle("dark-theme");
+};
+themeButton.addEventListener("click", toggleTheme);
+
+function goHome() {
+  mainMenuContainer.style.display = "block";
+  quizContainer.style.display = "none";
+  aboutContainer.style.display = "none";
+  leaderboardContainer.style.display = "none";
+  faqContainer.style.display = "none";
+  loginContainer.style.display = "none";
 }
 homeButton.addEventListener("click", goHome);
 // window.addEventListener(
@@ -186,6 +211,8 @@ answerBox.addEventListener("click", function (e) {
 // MAIN MENU BUTTONS
 // ABOUT
 
+// MAIN MENU BUTTONS
+// ABOUT
 const openAbout = () => {
   homeButton.style.display = "block";
   mainMenuContainer.style.display = "none";
@@ -217,3 +244,4 @@ faqButton.addEventListener("click", openFAQ);
 resButton.addEventListener("click", () => ourLink);
 // OR
 resButton.addEventListener("click", html.reload());
+openLeaderboardButton.addEventListener("click", openLeaderboard);
