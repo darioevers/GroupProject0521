@@ -1,43 +1,129 @@
 const answerBox = document.querySelector(".answer");
-const question = document.querySelector(".question");
+const questionCard = document.querySelector(".question");
+const nextQuestion = document.querySelector(".next-question");
+const counterCard = document.querySelector(".counter");
+const answerOne = document.querySelector(".answer-one");
+const answerTwo = document.querySelector(".answer-two");
+const answerThree = document.querySelector(".answer-three");
+const answerFour = document.querySelector(".answer-four");
+const answerCard = document.querySelector(".answer-box");
 
-function fetchEasyData() {
-  // this is a GET req
-  fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
+
+const easyQuestions =
+  "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
+const mediumQuestions =
+  "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
+const hardQuestions =
+  "https://opentdb.com/api.php?amount=1&difficulty=hard";
+  let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
+  // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
+  // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
+  let counter = 0 ;
+function fecthEasyQuestions() {
+  answerCard.classList.remove("wrong");
+  answerCard.classList.remove("correct");
+  counter++; 
+  if (counter <= 15){
+   fetch(easyQuestions)
     .then((response) => response.json())
-    .then((data) => {
-      let userCard1 = "<h2>The easy Level </h2>";
-      for (props in data) {
-        let questNum = data[props].length / 4;
-        for (let i = 0; i < questNum; i++) {
-          let data2 = data[props][i];
-          let answers = [];
-          answers = data2["incorrect_answers"]
-            .concat(data2["correct_answer"])
-            .sort();
-          userCard1 += `<li> <div>${data2["question"]}</h3></div> 
-          </li>`;
-          for (let i = 0; i < answers.length; i++) {
-            userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
-            // // if answer is correct
-            // userAnswer = ` ${answers[i]}<input type='radio' name='question' value= "${answers[i]}" ></input>: checked`;
-            // if (userAnswer === data2["correct_answer"]) {
-            //   // color the answers green
-            //   userCard1.style.color = "lightgreen";
-            // }
-            // // if answer is wrong or blank
-            // else {
-            //   // color the answers red
-            //   userCard1.style.color = "red";
-            // }
-          }
-        }
-      }
+    .then((data)=>{
+      // console.log(data.results[0]);
+      let question = data.results[0].question;
+      let correctAnswer ="," + data.results[0].correct_answer;
+      let allAnswers = data.results[0].incorrect_answers + correctAnswer;
+      //randomizing the answers 
+     let arrAllAnswers = allAnswers.split(",");
+     console.log(arrAllAnswers);
 
-      question.innerHTML = userCard1;
-    })
-    .catch((err) => console.log(`So this is what happened ${err}`));
-}
+     let firstAnswer = arrAllAnswers[Math.floor(Math.random()*4)];
+     console.log(firstAnswer);
+
+     arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
+
+     console.log(arrAllAnswers);
+
+     let secondAnswer = arrAllAnswers[Math.floor(Math.random()*3)];
+     console.log(secondAnswer);
+
+     arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
+
+     console.log(arrAllAnswers);
+
+     let thirdAnswer = arrAllAnswers[Math.floor(Math.random()*2)];
+     console.log(thirdAnswer);
+
+     arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
+    
+     console.log(arrAllAnswers);
+      //attaching the question variables into HTML
+      questionCard.innerHTML = `${question}`;
+      counterCard.innerHTML = `${counter} `;
+      answerOne.innerHTML = `${firstAnswer}`;
+      answerTwo.innerHTML = `${secondAnswer}`;
+      answerThree.innerHTML = `${thirdAnswer}`;
+      answerFour.innerHTML = `${arrAllAnswers}`;
+    //   console.log(data.results[0].correct_answer);
+    //   //adding event listener 
+    //   function calculating(e){
+    //     console.log(e.target.innerHTML);
+    //     if (e.target.innerHTML == data.results[0].correct_answer){
+    //         answerCard.classList.add("correct");
+    //     } else{
+    //       answerCard.classList.add("wrong");
+    //     }
+        
+    //  }
+    //   answerCard.addEventListener("click", calculating);
+     
+      })
+      .catch((err)=> console.log(err));
+      
+    } else{
+
+    }
+  }
+nextQuestion.addEventListener("click", fecthEasyQuestions);
+
+
+
+
+// function fetchEasyData() {
+//   // this is a GET req
+//   fetch("https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple")
+//     .then((response) => response.json())
+//     .then((data) => {
+//       let userCard1 = "<h2>The easy Level </h2>";
+//       for (props in data) {
+//         let questNum = data[props].length / 4;
+//         for (let i = 0; i < questNum; i++) {
+//           let data2 = data[props][i];
+//           let answers = [];
+//           answers = data2["incorrect_answers"]
+//             .concat(data2["correct_answer"])
+//             .sort();
+//           userCard1 += `<li> <div>${data2["question"]}</h3></div> 
+//           </li>`;
+//           for (let i = 0; i < answers.length; i++) {
+//             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
+//             // // if answer is correct
+//             // userAnswer = ` ${answers[i]}<input type='radio' name='question' value= "${answers[i]}" ></input>: checked`;
+//             // if (userAnswer === data2["correct_answer"]) {
+//             //   // color the answers green
+//             //   userCard1.style.color = "lightgreen";
+//             // }
+//             // // if answer is wrong or blank
+//             // else {
+//             //   // color the answers red
+//             //   userCard1.style.color = "red";
+//             // }
+//           }
+//         }
+//       }
+
+//       question.innerHTML = userCard1;
+//     })
+//     .catch((err) => console.log(`So this is what happened ${err}`));
+// }
 
 // DOM ELEMENT SELECTORS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
@@ -67,12 +153,7 @@ const homeButton = document.querySelector(".home-button");
 const restart = document.querySelector(".reload");
 const themeButton = document.querySelector(".theme-button");
 
-const easyQuestions =
-  "https://opentdb.com/api.php?amount=20&difficulty=easy&type=multiple";
-const mediumQuestions =
-  "https://opentdb.com/api.php?amount=20&difficulty=medium&type=multiple";
-const hardQuestions =
-  "https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple";
+
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -99,7 +180,6 @@ username.addEventListener("keyup", registerUsername);
 
 //FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
 const startGame = () => {
-  console.log(user.lenght);
   if (user.length < 1) {
     username.setAttribute("placeholder", "Type your name here :)");
   } else {
@@ -129,6 +209,7 @@ const startQuiz = () => {
   homeButton.style.display = "block";
   mainMenuContainer.style.display = "none";
   quizContainer.style.display = "block";
+  fecthEasyQuestions();
 };
 start.addEventListener("click", startQuiz);
 // CORNER BUTTONS
