@@ -9,7 +9,7 @@ const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
 const userPoints = document.querySelector(".user-points");
 
-let points = 0;
+
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 const mediumQuestions =
@@ -17,11 +17,11 @@ const mediumQuestions =
 const hardQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=hard";
   let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
-  // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
-  // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
+
+  let points = 0;
   let counter = 0 ;
 function fecthEasyQuestions() {
-//  document.querySelector(".correct").style.backgroundColor="white";
+  answerCard.style.backgroundColor = "white";
   counter++; 
   if (counter <= 15){
    fetch(easyQuestions)
@@ -56,23 +56,24 @@ function fecthEasyQuestions() {
       console.log(data.results[0].correct_answer);
       //adding event listener and function for user feedback and point calc
       
-      function calculating(e){
-        console.log(e.target.textContent);
-        
-        if (e.target.textContent.includes(data.results[0].correct_answer)){
-          answerCard.classList.toggle("correct");
-          document.querySelector(".correct").style.backgroundColor="green";
-          points+= 10;
-        } else{
-          answerCard.classList.toggle("wrong");
-          document.querySelector(".correct").style.backgroundColor="red";
-          points-= 10;
+      function calculating (e){
+        let clicked = e.target.innerHTML;
+        let rightAnswer = data.results[0].correct_answer;
+        if (clicked == rightAnswer){
+          answerCard.style.backgroundColor = "green";
+          setTimeout(() => {
+            points += 10;
+            fecthEasyQuestions();
+          }, 1000);
+        } else {
+          answerCard.style.backgroundColor = "red";
+          setTimeout(() => {
+            points -= 10;
+            fecthEasyQuestions();
+          }, 1000);
         }
-        userPoints.innerHTML = `${points}/150`
-        console.log(points);
-     }
+      }
       answerCard.addEventListener("click", calculating);
-     
       })
       .catch((err)=> console.log(err));
       
@@ -82,6 +83,7 @@ function fecthEasyQuestions() {
     }
   }
 nextQuestion.addEventListener("click", fecthEasyQuestions);
+
 
 
 
