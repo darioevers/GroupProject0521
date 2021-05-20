@@ -8,84 +8,83 @@ const answerThree = document.querySelector(".answer-three");
 const answerFour = document.querySelector(".answer-four");
 const answerCard = document.querySelector(".answer-box");
 
+const userPoints = document.querySelector(".user-points");
+const scores = document.querySelector(".score");
+
+let points = 0;
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
 const mediumQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
-const hardQuestions =
-  "https://opentdb.com/api.php?amount=1&difficulty=hard";
-  let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
-  // let randomAnswer = answersCard[Math.floor(Math.random()*3)];
-  // document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
-  let counter = 0 ;
+
+const hardQuestions = "https://opentdb.com/api.php?amount=1&difficulty=hard";
+let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
+// let randomAnswer = answersCard[Math.floor(Math.random()*3)];
+// document.getElementsByClassName(randomAnswer).innerHTML = `${rightAnswer}`;
+let counter = 0;
 function fecthEasyQuestions() {
-  answerCard.classList.remove("wrong");
-  answerCard.classList.remove("correct");
-  counter++; 
-  if (counter <= 15){
-   fetch(easyQuestions)
-    .then((response) => response.json())
-    .then((data)=>{
-      // console.log(data.results[0]);
-      let question = data.results[0].question;
-      let correctAnswer ="," + data.results[0].correct_answer;
-      let allAnswers = data.results[0].incorrect_answers + correctAnswer;
-      //randomizing the answers 
-     let arrAllAnswers = allAnswers.split(",");
-     console.log(arrAllAnswers);
+  counter++;
+  if (counter <= 15) {
+    fetch(easyQuestions)
+      .then((response) => response.json())
+      .then((data) => {
+        // Assingning the correct and incorrect asnwers to variables
+        let question = data.results[0].question;
+        let correctAnswer = "," + data.results[0].correct_answer;
+        let allAnswers = data.results[0].incorrect_answers + correctAnswer;
+        //randomizing the answers
+        let arrAllAnswers = allAnswers.split(",");
+        console.log(arrAllAnswers);
 
-     let firstAnswer = arrAllAnswers[Math.floor(Math.random()*4)];
-     console.log(firstAnswer);
+        let firstAnswer = arrAllAnswers[Math.floor(Math.random() * 4)];
+        arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
 
-     arrAllAnswers.splice(arrAllAnswers.indexOf(firstAnswer), 1);
+        let secondAnswer = arrAllAnswers[Math.floor(Math.random() * 3)];
+        arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
 
-     console.log(arrAllAnswers);
+        let thirdAnswer = arrAllAnswers[Math.floor(Math.random() * 2)];
+        arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
 
-     let secondAnswer = arrAllAnswers[Math.floor(Math.random()*3)];
-     console.log(secondAnswer);
+        console.log(arrAllAnswers);
+        //attaching the question variables into HTML
+        questionCard.innerHTML = `${question}`;
+        counterCard.innerHTML = `${counter} `;
+        answerOne.innerHTML = `${firstAnswer}`;
+        answerTwo.innerHTML = `${secondAnswer}`;
+        answerThree.innerHTML = `${thirdAnswer}`;
+        answerFour.innerHTML = `${arrAllAnswers}`;
 
-     arrAllAnswers.splice(arrAllAnswers.indexOf(secondAnswer), 1);
+        console.log(data.results[0].correct_answer);
+        //adding event listener and function for user feedback and point calc
+        answerCard.style.backgroundColor = "white";
+        function calculating(e) {
+          console.log(e.target.textContent);
 
-     console.log(arrAllAnswers);
+          if (e.target.textContent.includes(data.results[0].correct_answer)) {
+            answerCard.classList.toggle("correct");
+            answerCard.style.backgroundColor = "green";
+            points += 10;
+          } else {
+            answerCard.classList.toggle("wrong");
+            answerCard.style.backgroundColor = "red";
+            points -= 10;
+          }
+          userPoints.innerHTML = `${points}/150`;
+          console.log(points);
 
-     let thirdAnswer = arrAllAnswers[Math.floor(Math.random()*2)];
-     console.log(thirdAnswer);
-
-     arrAllAnswers.splice(arrAllAnswers.indexOf(thirdAnswer), 1);
-    
-     console.log(arrAllAnswers);
-      //attaching the question variables into HTML
-      questionCard.innerHTML = `${question}`;
-      counterCard.innerHTML = `${counter} `;
-      answerOne.innerHTML = `${firstAnswer}`;
-      answerTwo.innerHTML = `${secondAnswer}`;
-      answerThree.innerHTML = `${thirdAnswer}`;
-      answerFour.innerHTML = `${arrAllAnswers}`;
-    //   console.log(data.results[0].correct_answer);
-    //   //adding event listener 
-    //   function calculating(e){
-    //     console.log(e.target.innerHTML);
-    //     if (e.target.innerHTML == data.results[0].correct_answer){
-    //         answerCard.classList.add("correct");
-    //     } else{
-    //       answerCard.classList.add("wrong");
-    //     }
-        
-    //  }
-    //   answerCard.addEventListener("click", calculating);
-     
+          console.log(scores);
+        }
+        answerCard.addEventListener("click", calculating);
+        scores.innerHTML = `    Your Score =${points}/150`;
       })
-      .catch((err)=> console.log(err));
-      
-    } else{
-
-    }
+      .catch((err) => console.log(err));
+  } else {
+    quizContainer.style.display = "none";
+    leaderboardContainer.style.diplay = "block";
   }
+}
 nextQuestion.addEventListener("click", fecthEasyQuestions);
-
-
-
 
 // function fetchEasyData() {
 //   // this is a GET req
@@ -101,7 +100,7 @@ nextQuestion.addEventListener("click", fecthEasyQuestions);
 //           answers = data2["incorrect_answers"]
 //             .concat(data2["correct_answer"])
 //             .sort();
-//           userCard1 += `<li> <div>${data2["question"]}</h3></div> 
+//           userCard1 += `<li> <div>${data2["question"]}</h3></div>
 //           </li>`;
 //           for (let i = 0; i < answers.length; i++) {
 //             userCard1 += `<h4>* ${answers[i]}   <input type='radio' name='question' value= "${answers[i]} " ></input></h4> <br>`;
@@ -125,6 +124,7 @@ nextQuestion.addEventListener("click", fecthEasyQuestions);
 //     .catch((err) => console.log(`So this is what happened ${err}`));
 // }
 
+
 // DOM ELEMENT SELECTORS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
@@ -144,7 +144,9 @@ const play = document.querySelector(".login-button");
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
-const mainContainer = document.querySelector(".main_container"); 
+
+const mainContainer = document.querySelector(".main_container");
+
 // IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
@@ -152,7 +154,6 @@ const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
 const restart = document.querySelector(".reload");
 const themeButton = document.querySelector(".theme-button");
-
 
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
@@ -166,6 +167,29 @@ const openCloseMenu = () => {
     navigation.style.display = "none";
   }
   close = !close;
+};
+hamburgerMenuIcon.addEventListener("click", openCloseMenu);
+
+//FUNCTION FOR STORING USERNAME
+let user = "";
+function registerUsername(e) {
+  console.dir(e.target.value);
+  user = e.target.value;
+  console.log(user);
+}
+username.addEventListener("keyup", registerUsername);
+
+//FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
+const startGame = () => {
+  if (user.length < 1) {
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else {
+    mainMenuContainer.style.display = "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display = "none";
+  }
+
 };
 hamburgerMenuIcon.addEventListener("click", openCloseMenu);
 
@@ -279,8 +303,99 @@ openLeaderboardButton.addEventListener("click", openLeaderboard);
 //   navigation.style.display = "inherit";
 // };
 
+
+const startGameTwo = (e) => {
+  if (user == "") {
+    username.setAttribute("placeholder", "Type your name here :)");
+  } else if (event.key == "Enter") {
+    mainMenuContainer.style.display = "block";
+    welcomeMessage.innerHTML = `Welcome, ${user}!`;
+    userNav.innerHTML = `${user}`;
+    loginContainer.style.display = "none";
+  }
+};
+
+play.addEventListener("click", startGame);
+username.addEventListener("keypress", startGameTwo);
+
+//FUNCTION FOR STARTING THE QUIZ
+const startQuiz = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  quizContainer.style.display = "block";
+  fecthEasyQuestions();
+};
+start.addEventListener("click", startQuiz);
+// CORNER BUTTONS
+// LIGHT DARK MODE
+const toggleTheme = () => {
+  document.body.classList.toggle("dark-theme");
+};
+themeButton.addEventListener("click", toggleTheme);
+
+function goHome() {
+  mainMenuContainer.style.display = "block";
+  quizContainer.style.display = "none";
+  aboutContainer.style.display = "none";
+  leaderboardContainer.style.display = "none";
+  faqContainer.style.display = "none";
+  loginContainer.style.display = "none";
+}
+homeButton.addEventListener("click", goHome);
+
+//FUNCTION FOR THE THE LOGOUT ITEM ON THE MENU
+function logOut() {
+  setTimeout("location.reload(true);", 0.5);
+}
+restart.addEventListener("click", logOut);
+
+// MAIN MENU BUTTONS
+// ABOUT
+const openAbout = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  aboutContainer.style.display = "block";
+};
+openAboutButton.addEventListener("click", openAbout);
+
+// FAQ
+const openFAQ = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  faqContainer.style.display = "block";
+};
+openFAQButton.addEventListener("click", openFAQ);
+
+// LEADERBOARD
+const openLeaderboard = () => {
+  homeButton.style.display = "block";
+  mainMenuContainer.style.display = "none";
+  leaderboardContainer.style.display = "block";
+};
+openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
 // hamburgerMenu.addEventListener("click", menuClick);
 // closeMenu.addEventListener("click", () => {
 //   hamburgerMenu.style.display = "inherit";
 //   navigation.style.display = "none";
 // });
+
