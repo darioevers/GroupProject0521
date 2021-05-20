@@ -109,13 +109,13 @@ function calculating (e){
     setTimeout(() => {
      points += 10;
       fecthEasyQuestions();
-    }, 1000);
+    }, 500);
   } else {
     e.target.style.backgroundColor = "red";
     setTimeout(() => {
       points -= 10;
       fecthEasyQuestions();
-    }, 1000);
+    }, 500);
     userPoints.innerHTML = `${points}/150`;
   }
   // e.target.style.backgroundColor= "white";
