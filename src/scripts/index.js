@@ -253,8 +253,8 @@ parsedData.forEach((obj) => {
   let { firstName, secondName, score, stars } = obj;
   let card = `
   <div class="person">
-  ${firstName} ${secondName} has ${score}! </br>
-  Verry Good played ${firstName}! You received ${stars}
+  <span class="person-name">${firstName} ${secondName} has ${score}! </span></br>
+  <span class="message">Verry Good played ${firstName}! You received ${stars}</span>
   </div>
     `;
   people.innerHTML += card;
