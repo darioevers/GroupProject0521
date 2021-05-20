@@ -15,7 +15,7 @@ const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 const username = document.querySelector(".username-field");
 const play = document.querySelector(".login-button");
-const loginContainer = document.querySelector(".login-container");
+
 const openAboutButton = document.querySelector(".open-about");
 const openFAQButton = document.querySelector(".open-faq");
 const openLeaderboardButton = document.querySelector(".open-leaderboard");
@@ -25,10 +25,6 @@ const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
 const homeButton = document.querySelector(".home-button");
 const themeButton = document.querySelector(".theme-button");
-
-const aboutContainer = document.querySelector(".about-container");
-const faqContainer = document.querySelector(".faq-container");
-const leaderboardContainer = document.querySelector(".leaderboard-container");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
@@ -45,7 +41,7 @@ const counter = document.querySelector(".counter");
 const aboutButton = document.querySelector(".about-button"); // index.html line 42
 const faqButton = document.querySelector(".faq-button"); // index.html line 47
 const resButton = document.querySelector(".res-button"); // index.html line 52
-("https://opentdb.com/api.php?amount=20&difficulty=hard&type=multiple");
+const userPoints = document.querySelector(".user-points");
 
 //FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
 let close = true;
@@ -77,7 +73,7 @@ function fetchEasyData() {
   fetch(easyQuestions)
     .then((res) => res.json())
     .then((data) => {
-      for (props in data) {
+      for (let props in data) {
         let questNum = data[props].length;
         for (let i = 0; i < questNum; i++) {
           let data2 = data[props][i];
@@ -114,7 +110,7 @@ function fetchEasyData() {
 
 //FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
 const startGame = () => {
-  console.log(user.lenght);
+  // console.log(user.lenght);
   if (user.length < 1) {
     username.setAttribute("placeholder", "Type your name here :)");
   } else {
@@ -140,9 +136,6 @@ start.addEventListener("click", startQuiz);
 
 const quizNavButton = document.querySelector(".quiz-start"); // Added class quiz-start in index.html/ line 32
 const hallOfFame = document.querySelector(".hallof-fame"); // added hallof-fame class in index.html/ line 37
-const openAboutButton = document.querySelector(".open-about");
-const openFAQButton = document.querySelector(".open-faq");
-const openLeaderboardButton = document.querySelector(".open-leaderboard");
 
 function goHome() {
   quizContainer.style.display = "none";
@@ -157,14 +150,14 @@ const toggleTheme = () => {
 };
 themeButton.addEventListener("click", toggleTheme);
 
-function goHome() {
-  mainMenuContainer.style.display = "block";
-  quizContainer.style.display = "none";
-  aboutContainer.style.display = "none";
-  leaderboardContainer.style.display = "none";
-  faqContainer.style.display = "none";
-  loginContainer.style.display = "none";
-}
+// function goHome() {
+//   mainMenuContainer.style.display = "block";
+//   quizContainer.style.display = "none";
+//   aboutContainer.style.display = "none";
+//   leaderboardContainer.style.display = "none";
+//   faqContainer.style.display = "none";
+//   loginContainer.style.display = "none";
+// }
 homeButton.addEventListener("click", goHome);
 // window.addEventListener(
 //   "load",
@@ -196,6 +189,9 @@ answerBox.addEventListener("click", function (e) {
       let value = counter.textContent;
       console.log(value);
       counter.textContent = parseInt(value) + 1;
+      let points = userPoints.textContent;
+      console.log(points);
+      userPoints.textContent = parseInt(points) + 10;
     });
     // e.target.classList.add("correctanswer");
     // console.log(e.target.textContent);
@@ -243,5 +239,24 @@ aboutButton.addEventListener("click", openAbout);
 faqButton.addEventListener("click", openFAQ);
 resButton.addEventListener("click", () => ourLink);
 // OR
-resButton.addEventListener("click", html.reload());
+// resButton.addEventListener("click", window.reload());
 openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+// Import data from data.js
+
+import { data } from "./data.js";
+
+let parsedData = JSON.parse(data);
+const people = document.querySelector(".people");
+// console.log(parsedData);
+parsedData.forEach((obj) => {
+  let { firstName, secondName, score, stars } = obj;
+  let card = `
+  <div class="person">
+  ${firstName} ${secondName} has ${score}! </br>
+  Verry Good played ${firstName}! You received ${stars}
+  </div>
+    `;
+  people.innerHTML += card;
+});
+// type="module" I think we need to add this in script on index.html
