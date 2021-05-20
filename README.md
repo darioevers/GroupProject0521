@@ -1,7 +1,13 @@
+
 # GroupProject0521!
 
 ## Quiz Game App : 
 https://darioevers.github.io/GroupProject0521/
+
+
+![Screenshot from 2021-05-20 12-32-02](https://user-images.githubusercontent.com/75792175/118964212-8d666480-b967-11eb-823f-a249b10e3097.png)
+
+
 
 
 ## Table of contents:
