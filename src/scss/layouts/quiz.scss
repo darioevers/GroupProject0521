@@ -1,5 +1,3 @@
-// ============================================= QUIZ SCREEN
-
 .quiz-container {
   display: none; // QUIZ SCREEN DISPLAY
   margin: 22vh auto;
@@ -22,9 +20,10 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
     position: relative;
     h2 {
-      padding-top: 20%;
+      padding-top: 10%;
     }
     p {
       height: 53px;
@@ -48,5 +47,13 @@
       background-color: #6200ee;
       color: white;
     }
+    .correct {
+      // color: white;
+      background: white;
+    }
+    // .wrong{
+    //   color: white;
+    //   background: red;
+    // }
   }
 }
