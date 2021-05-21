@@ -71,25 +71,6 @@ function fecthEasyQuestions() {
       let rightAnswer = data.results[0].correct_answer;
       window.rightAnswerTwo = rightAnswer;
       console.log(rightAnswerTwo);
-      //adding event listener and function for user feedback and point calc
-    //   function calculating(e) {
-    //     console.log(e.target.textContent);
-
-    //     if (e.target.textContent.includes(data.results[0].correct_answer)) {
-    //       answerCard.classList.toggle("correct");
-    //       answerCard.style.backgroundColor = "green";
-    //       points += 10;
-    //     } else {
-    //       answerCard.classList.toggle("wrong");
-    //       answerCard.style.backgroundColor = "red";
-    //       points -= 10;
-    //     }
-    //     userPoints.innerHTML = `${points}/150`;
-    //     console.log(points);
-    //     document.querySelector(".score").innerHTML = `${points}/150`;
-    //   }
-    //   answerCard.addEventListener("click", calculating);
-    // })
       })
       .catch((err)=> console.log(err));
       
@@ -121,33 +102,6 @@ function calculating (e){
   // e.target.style.backgroundColor= "white";
 }
 answerCard.addEventListener("click", calculating);
-
-// answerCard.style.backgroundColor = "white";
-// function calculating(e) {
-//   console.log(e.target.textContent);
-
-//   if (e.target.textContent.includes(data.results[0].correct_answer)) {
-//     answerCard.classList.toggle("correct");
-//     answerCard.style.backgroundColor = "green";
-//     points += 10;
-//   } else {
-//     answerCard.classList.toggle("wrong");
-//     answerCard.style.backgroundColor = "red";
-//     points -= 10;
-//   }
-//   userPoints.innerHTML = `${points}/150`;
-//   console.log(points);
-//   document.querySelector(".score").innerHTML = `${points}/150`;
-// }
-// answerCard.addEventListener("click", calculating);
-// })
-// .catch((err) => console.log(err));
-// } else {
-// quizContainer.style.display = "none";
-// leaderboardContainer.style.diplay = "block";
-// }
-// }
-// nextQuestion.addEventListener("click", fecthEasyQuestions);
 
 // DOM ELEMENT SELECTORS FOR NAVIGATIONS
 const hamburgerMenu = document.querySelector(".hamburger-menu");
