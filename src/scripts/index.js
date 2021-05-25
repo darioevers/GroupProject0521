@@ -1,3 +1,5 @@
+import {startGame, registerUsername, startGameTwo, startQuiz, openAbout, openFAQ, openLeaderboard, openCloseMenu} from "./navigation.js";
+
 const answerBox = document.querySelector(".answer");
 const questionCard = document.querySelector(".question");
 const nextQuestion = document.querySelector(".next-question");
@@ -91,12 +93,14 @@ function calculating (e){
      points += 10;
       fecthEasyQuestions();
     }, 500);
+    //apply else if with conditional only for the e.target to be styled with backgroundColor
   } else {
     e.target.style.backgroundColor = "red";
     setTimeout(() => {
       points -= 10;
       fecthEasyQuestions();
     }, 500);
+    //the else statement needs to be there in case the user clicks on anything other then the questions box
     userPoints.innerHTML = `${points}/150`;
   }
   // e.target.style.backgroundColor= "white";
@@ -107,23 +111,15 @@ answerCard.addEventListener("click", calculating);
 const hamburgerMenu = document.querySelector(".hamburger-menu");
 const closeMenu = document.querySelector(".close-menu");
 const navigation = document.querySelector("nav");
-// const question = document.querySelector(".question");
+const question = document.querySelector(".question");
 const answer = document.querySelector(".answer");
 const loginContainer = document.querySelector(".login-container");
 const mainMenuContainer = document.querySelector(".main-menu-container");
 const quizContainer = document.querySelector(".quiz-container");
-const aboutContainer = document.querySelector(".about-container");
-const faqContainer = document.querySelector(".faq-container");
-const leaderboardContainer = document.querySelector(".leaderboard-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 const username = document.querySelector(".username-field");
-const play = document.querySelector(".login-button");
-const openAboutButton = document.querySelector(".open-about");
-const openFAQButton = document.querySelector(".open-faq");
-const openLeaderboardButton = document.querySelector(".open-leaderboard");
 const mainContainer = document.querySelector(".main_container"); 
-// IS THIS THE SAME AS LINE 49?
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
 const start = document.querySelector(".start-quiz");
@@ -131,66 +127,6 @@ const homeButton = document.querySelector(".home-button");
 const restart = document.querySelector(".reload");
 const themeButton = document.querySelector(".theme-button");
 
-
-
-//FUNCTION FOR OPENING AND CLOSING THE SIDE MENU
-let close = true;
-const openCloseMenu = () => {
-  if (close) {
-    hamburgerMenuIcon.classList.toggle("open");
-    navigation.style.display = "block";
-  } else {
-    hamburgerMenuIcon.classList.toggle("open");
-    navigation.style.display = "none";
-  }
-  close = !close;
-};
-hamburgerMenuIcon.addEventListener("click", openCloseMenu);
-
-//FUNCTION FOR STORING USERNAME
-let user = "";
-function registerUsername(e) {
-  console.dir(e.target.value);
-  user = e.target.value;
-  console.log(user);
-}
-username.addEventListener("keyup", registerUsername);
-
-//FUNCTION FOR DIRECTING GAMER FOR THE WELCOME PAGE
-const startGame = () => {
-  if (user.length < 1) {
-    username.setAttribute("placeholder", "Type your name here :)");
-  } else {
-    mainMenuContainer.style.display = "block";
-    welcomeMessage.innerHTML = `Welcome, ${user}!`;
-    userNav.innerHTML = `${user}`;
-    loginContainer.style.display = "none";
-  }
-}; 
-
-const startGameTwo = (e)=>{
-  if (user == ""){
-    username.setAttribute("placeholder", "Type your name here :)");
-  } else if (event.key == "Enter"){
-    mainMenuContainer.style.display= "block";
-    welcomeMessage.innerHTML = `Welcome, ${user}!`;
-    userNav.innerHTML = `${user}`;
-    loginContainer.style.display= "none";
-  } 
-}
-
-play.addEventListener("click", startGame);
-username.addEventListener("keypress", startGameTwo);
-
-//FUNCTION FOR STARTING THE QUIZ
-const startQuiz = () => {
-  homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
-  quizContainer.style.display = "block";
-  fecthEasyQuestions();
-};
-start.addEventListener("click", startQuiz);
-// CORNER BUTTONS
 // LIGHT DARK MODE
 const toggleTheme = () => {
   document.body.classList.toggle("dark-theme");
@@ -208,32 +144,8 @@ function goHome() {
 homeButton.addEventListener("click", goHome);
 
 //FUNCTION FOR THE THE LOGOUT ITEM ON THE MENU
-function logOut (){
-  setTimeout("location.reload(true);", 0.5);
-}
-restart.addEventListener("click", logOut);
 
-// MAIN MENU BUTTONS
-// ABOUT
-const openAbout = () => {
-  homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
-  aboutContainer.style.display = "block";
-};
-openAboutButton.addEventListener("click", openAbout);
 
-// FAQ
-const openFAQ = () => {
-  homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
-  faqContainer.style.display = "block";
-};
-openFAQButton.addEventListener("click", openFAQ);
 
-// LEADERBOARD
-const openLeaderboard = () => {
-  homeButton.style.display = "block";
-  mainMenuContainer.style.display = "none";
-  leaderboardContainer.style.display = "block";
-};
-openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+export default fecthEasyQuestions;
