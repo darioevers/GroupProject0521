@@ -116,9 +116,18 @@ const answer = document.querySelector(".answer");
 const loginContainer = document.querySelector(".login-container");
 const mainMenuContainer = document.querySelector(".main-menu-container");
 const quizContainer = document.querySelector(".quiz-container");
+const aboutContainer = document.querySelector(".about-container");
+const faqContainer = document.querySelector(".faq-container");
+const leaderboardContainer = document.querySelector(".leaderboard-container");
+const finalContainer = document.querySelector(".final-container");
 const startButton = document.querySelector("#startButton");
 const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
 const username = document.querySelector(".username-field");
+const play = document.querySelector(".login-button");
+const printButton = document.querySelector(".printbutton");
+const openAboutButton = document.querySelector(".open-about");
+const openFAQButton = document.querySelector(".open-faq");
+const openLeaderboardButton = document.querySelector(".open-leaderboard");
 const mainContainer = document.querySelector(".main_container"); 
 const welcomeMessage = document.querySelector(".welcome-message");
 const userNav = document.querySelector(".username");
@@ -147,5 +156,49 @@ homeButton.addEventListener("click", goHome);
 
 
 
+// LEADERBOARD
+// const openLeaderboard = () => {
+//   homeButton.style.display = "block";
+//   leaderboardContainer.style.display = "block";
+//   mainMenuContainer.style.display = "none";
+//   finalContainer.style.display = "none";
+// };
+
+// openLeaderboardButton.addEventListener("click", openLeaderboard);
+
+
+
+// ADDITIONAL FUNCTIONS
+// PRINT PAGE
+
+const printPage = () => {
+  window.print();
+};
+printButton.addEventListener("click", printPage);
+
+// window.addEventListener(
+//   "load",
+//   () => (quizMainContainer.style.display = "none")
+// );
+// window.addEventListener(
+//   "
+//   () => (quizMainContainer.style.display = "none")
+// );
+
+// startButton.addEventListener("click", () => {
+//   mainContainer.style.display = "none";
+//   quizMainContainer.style.display = "inherit";
+// });
+
+// const menuClick = () => {
+//   hamburgerMenu.style.display = "none";
+//   navigation.style.display = "inherit";
+// };
+
+// hamburgerMenu.addEventListener("click", menuClick);
+// closeMenu.addEventListener("click", () => {
+//   hamburgerMenu.style.display = "inherit";
+//   navigation.style.display = "none";
+// });
 
 export default fecthEasyQuestions;
