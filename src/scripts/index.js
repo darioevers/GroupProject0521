@@ -1,4 +1,4 @@
-import {startGame, registerUsername, startGameTwo, startQuiz, openAbout, openFAQ, openLeaderboard, openCloseMenu} from "./navigation.js";
+import {startGame, registerUsername, startGameTwo, startQuiz, openAbout, openFAQ, openLeaderboard, openCloseMenu, openQuiz, openingAbout, openFaq, openHall, logOut} from "./navigation.js";
 
 const answerBox = document.querySelector(".answer");
 const questionCard = document.querySelector(".question");
@@ -15,11 +15,11 @@ const reset = document.querySelector(".reset");
 
 const easyQuestions =
   "https://opentdb.com/api.php?amount=1&difficulty=easy&type=multiple";
-const mediumQuestions =
-  "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
-const hardQuestions =
-  "https://opentdb.com/api.php?amount=1&difficulty=hard";
-  let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
+// const mediumQuestions =
+//   "https://opentdb.com/api.php?amount=1&difficulty=medium&type=multiple";
+// const hardQuestions =
+//   "https://opentdb.com/api.php?amount=1&difficulty=hard";
+//   let answersCard = ["answer-one", "answer-two", "answer-three", "answer-four"];
 
   
   let counter = 0 ;
