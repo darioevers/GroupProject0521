@@ -1,14 +1,6 @@
 import fecthEasyQuestions from "./index.js";
 // ============== DOM SELECTORS ==============
 
-//welcome page selectors
-const username = document.querySelector(".username-field");
-const mainMenuContainer = document.querySelector(".main-menu-container");
-const welcomeMessage = document.querySelector(".welcome-message");
-const userNav = document.querySelector(".username");
-const loginContainer = document.querySelector(".login-container");
-const play = document.querySelector(".login-button");
-
 //Main page selectors
 const homeButton = document.querySelector(".home-button");
 const quizContainer = document.querySelector(".quiz-container");
@@ -33,6 +25,7 @@ console.log(faq);
 
 // ============== Navigation functions for the welcome page ==============
 
+const play = document.querySelector(".login-button");
 //registering the user name
 let user = "";
 function registerUsername(e) {
@@ -43,6 +36,11 @@ function registerUsername(e) {
 
 //function to hide the welcome page and display the main page upon clicking the button "Play"
 const startGame = () => {
+  const username = document.querySelector(".username-field");
+  const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
+  const mainMenuContainer = document.querySelector(".main-menu-container");
+  const userNav = document.querySelector(".username");
+  const loginContainer = document.querySelector(".login-container");
     if (user.length < 1) {
       username.setAttribute("placeholder", "Type your name here :)");
     } else {
@@ -56,6 +54,11 @@ const startGame = () => {
 
 //function to hide the welcome page and display the main page upon pressing the key "Enter"
 const startGameTwo = (e)=>{
+  const username = document.querySelector(".username-field");
+  const hamburgerMenuIcon = document.querySelector(".hamburger-menu-icon");
+  const welcomeMessage = document.querySelector(".welcome-message");
+  const userNav = document.querySelector(".username");
+   const loginContainer = document.querySelector(".login-container");
     if (user == ""){
       username.setAttribute("placeholder", "Type your name here :)");
     } else if (event.key == "Enter"){
